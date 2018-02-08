@@ -6,16 +6,14 @@ import './style.scss';
 import TaskDetails from 'components/TaskDetails';
 import UserLocation from 'components/UserLocation';
 import ServiceType from 'components/ServiceType';
-
 import AviableTask from 'components/AviableTask';
+import TaskDescription from 'components/TaskDescription';
 
 const mapStateToProps = state => ({
   panelToggle: state.togglePanel.panelToggle
 });
 
-const dispatchMapToProps = dispatch => ({
-
-});
+const dispatchMapToProps = dispatch => ({});
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskPanel extends Component {
@@ -28,6 +26,7 @@ class TaskPanel extends Component {
           <UserLocation/>
           <ServiceType/>
           <AviableTask/>
+          <TaskDescription/>
         </div>
       </div>
     );

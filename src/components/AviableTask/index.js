@@ -18,8 +18,8 @@ class AviableTask extends Component {
   render() {
     return (
       <div className='aviable-task'>
-        <div className='aviable-task__wrapper'>
-          <p className='aviable-task__heading'>
+        <div className='aviable-task__wrapper sidebar__wrapper'>
+          <p className='aviable-task__heading sidebar__heading'>
             PLUMBER TASKS
           </p>
           <ul className='aviable-task__list'>

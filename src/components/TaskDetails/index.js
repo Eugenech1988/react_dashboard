@@ -14,8 +14,8 @@ class TaskDetails extends Component {
   render() {
     return (
       <div className='task-details'>
-        <div className='task-details__wrapper'>
-          <p className='task-details__heading'>
+        <div className='task-details__wrapper sidebar__wrapper'>
+          <p className='task-details__heading sidebar__heading'>
             New Task
           </p>
           <p className='task-details__notify'>

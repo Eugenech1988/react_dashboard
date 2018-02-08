@@ -19,8 +19,8 @@ class ServiceType extends Component {
   render() {
     return (
       <div className='service'>
-        <div className='service__wrapper'>
-          <p className='service__heading'>
+        <div className='service__wrapper sidebar__wrapper'>
+          <p className='service__heading sidebar__heading'>
             service type
           </p>
           <ul className='service__list'>

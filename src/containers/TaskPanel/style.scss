@@ -8,6 +8,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   transition: all .5s ease-in-out;
+  overflow: auto;
   &--active {
     right: 0;
   }

@@ -17,8 +17,8 @@ class UserLocation extends Component {
   render() {
     return (
       <div className='user-location'>
-        <div className='user-location__wrapper'>
-          <p className='user-location__heading'>
+        <div className='user-location__wrapper sidebar__wrapper'>
+          <p className='user-location__heading sidebar__heading'>
             location
           </p>
           <p className='user-location__notify'>

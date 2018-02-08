@@ -494,4 +494,19 @@ template {
   transition: opacity 500ms ease-in;
 }
 
+.sidebar__wrapper {
+ padding: 20px 40px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.sidebar__heading {
+  color: #909090;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
 
