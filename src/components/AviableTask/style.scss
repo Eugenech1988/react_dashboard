@@ -1,0 +1,38 @@
+.aviable-task__wrapper {
+  padding: 20px 40px 15px 40px;
+  border: 1px solid #f1f1f1;
+}
+
+.aviable-task__heading {
+  color: #909090;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: {
+    top: 0;
+    bottom: 15px;
+  };
+}
+
+.aviable-task__list {
+  padding-left: 0;
+  font-size: 0;
+}
+
+.aviable-task__item {
+  list-style-type: none;
+  color: #1a1b1f;
+  font-size: 16px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  line-height: 40px;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 57px;
+  &.active {
+    border: 1px solid #4c71fe;
+  }
+}

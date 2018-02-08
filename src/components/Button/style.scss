@@ -1,0 +1,31 @@
+.btn {
+  border-radius: 4px;
+  box-shadow: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+  &:focus {
+    outline: none;
+  }
+  span {
+    height: 21px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    line-height: 40px;
+  }
+  &--confirm {
+    background-color: #4c71fe;
+    &:hover {
+      background-color: lighten(#4c71fe, 5%);
+    }
+    &:active {
+      background-color: darken(#4c71fe, 5%);
+    }
+    span {
+      color: #ffffff;
+    }
+  }
+}

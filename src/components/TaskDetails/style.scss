@@ -1,0 +1,43 @@
+.task-details__wrapper {
+  background-color: #f1f1f1;
+  padding: 20px 40px;
+}
+
+.task-details__heading {
+  color: #909090;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: {
+    top: 0;
+    bottom: 7px;
+  }
+}
+
+.task-details__notify {
+  width: 432px;
+  height: 56px;
+  color: #1a1b1f;
+  font-size: 24px;
+  line-height: 28px;
+  margin: {
+    top: 0;
+    bottom: 15px;
+  };
+  &--marked {
+    font-weight: 700;
+  }
+}
+
+.task-details__address {
+  width: 460px;
+  height: 22px;
+  color: #1a1b1f;
+  font-size: 16px;
+  line-height: 22px;
+  margin: {
+    top: 0;
+    bottom: 25px;
+  };
+}

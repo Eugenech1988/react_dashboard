@@ -1,0 +1,1 @@
+export const TOGGLE_PANEL_CONST = 'TOGGLE_PANEL_CONST';

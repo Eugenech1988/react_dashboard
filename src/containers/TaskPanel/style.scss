@@ -1,0 +1,14 @@
+.task-panel__wrapper {
+  position: absolute;
+  right: -500px;
+  top: 0;
+  height: calc(100vh - 80px);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: all .5s ease-in-out;
+  &--active {
+    right: 0;
+  }
+}

@@ -1,0 +1,26 @@
+.add-task__btn {
+  margin-top: 40px;
+  max-width: 330px;
+  width: 100%;
+  display: block;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: box-shadow .3s ease;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.75);
+  }
+}
+
+.add-task__text {
+  line-height: 50px;
+  color: #4c71fe;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
