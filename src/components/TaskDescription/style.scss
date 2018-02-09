@@ -3,9 +3,22 @@
   color: #1a1b1f;
   font-size: 18px;
   line-height: 24px;
-  border-radius: 4px;
   box-shadow: none;
-  border: 1px solid #909090;
+  
+  border: {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 3px solid #f1f1f1;
+  }
+  &:before {
+
+    border: 3px solid #4c71fe;
+  }
+  &:focus {
+    border-color: #4c71fe;
+    outline: none;
+  }
   -webkit-appearance: none;
   appearance: none;
 }

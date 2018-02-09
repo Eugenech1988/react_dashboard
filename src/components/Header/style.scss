@@ -41,7 +41,7 @@
     height: 4px;
     background-color: #1a1b1f;
     width: 0;
-    transition: all  .3s ease;
+    transition: all .3s ease;
   }
   &.active {
     &:before {
@@ -49,6 +49,7 @@
     }
     &:hover {
       &:before {
+        width: 100%;
         background-color: rgba(231, 89, 113, .7);
       }
     }
@@ -61,8 +62,9 @@
   }
   &:hover {
     color: rgba(231, 89, 113, .7);
+    &:before {
+      width: 100%;
+      background-color: rgba(231, 89, 113, .7);
+    }
   }
-}
-.nav__link.active:before {
-
 }
