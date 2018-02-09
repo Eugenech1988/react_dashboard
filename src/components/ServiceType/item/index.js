@@ -28,7 +28,7 @@ class ServiceItem extends Component {
 }
 
 ServiceItem.propTypes = {
-  serviceImg: PropTypes.any,
+  serviceImg: PropTypes.string,
   serviceNotify: PropTypes.string
 };
 

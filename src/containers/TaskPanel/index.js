@@ -10,7 +10,7 @@ import AviableTask from 'components/AviableTask';
 import TaskDescription from 'components/TaskDescription';
 
 const mapStateToProps = state => ({
-  panelToggle: state.togglePanel.panelToggle
+  isPanelOpened: state.taskPanel.isPanelOpened
 });
 
 const dispatchMapToProps = dispatch => ({});
@@ -18,10 +18,10 @@ const dispatchMapToProps = dispatch => ({});
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskPanel extends Component {
   render() {
-    const {panelToggle} = this.props;
+    const {isPanelOpened} = this.props;
     return (
       <div className='task-panel'>
-        <div className={`task-panel__wrapper ${panelToggle ? 'task-panel__wrapper--active' : ''}`}>
+        <div className={`task-panel__wrapper ${isPanelOpened ? 'task-panel__wrapper--active' : ''}`}>
           <TaskDetails/>
           <UserLocation/>
           <ServiceType/>
@@ -34,7 +34,7 @@ class TaskPanel extends Component {
 }
 
 TaskPanel.propTypes = {
-  panelToggle: PropTypes.bool
+  isPanelOpened: PropTypes.bool
 };
 
 export default TaskPanel;

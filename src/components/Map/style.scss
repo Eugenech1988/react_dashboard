@@ -1,4 +1,11 @@
 #map {
   height: calc(100vh - 80px);
   width: 100%;
+  transition: all .5s ease;
+  //z-index: 1;
 }
+
+.map__wrapper--faded {
+  width: calc(100% - 500px);
+}
+

@@ -22,9 +22,7 @@ class DashContainer extends React.Component {
         <Loader/>
         }
         <Map/>
-        <div className='tasks__wrapper'>
-          <AddTask/>
-        </div>
+        <AddTask/>
         <TaskPanel/>
       </div>
     );

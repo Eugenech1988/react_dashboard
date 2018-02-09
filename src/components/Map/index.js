@@ -7,7 +7,8 @@ import './style.scss';
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  userDetails: state.userDetails
+  userDetails: state.userDetails,
+  isPanelOpened: state.taskPanel.isPanelOpened
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -24,7 +25,7 @@ class Map extends Component {
   }
   
   componentWillReceiveProps(nextProps) {
-    const {userDetails, setCustomCoords} = nextProps;
+    const {userDetails, setCustomCoords, isPanelOpened} = nextProps;
     const mapDiv = document.getElementById('map');
     if (mapDiv) {
       let center = {lat: userDetails.lat, lng: userDetails.lng};
@@ -50,11 +51,16 @@ class Map extends Component {
         center = {lat: customLat, lng: customLng};
         map.setCenter(center);
       });
+      if (isPanelOpened)
+        map.panTo(center);
+      else {
+        map.panTo(center);
+      }
     }
   }
   
   render() {
-    const {userDetails} = this.props;
+    const {userDetails, isPanelOpened} = this.props;
     return (
       <div className='map'>
         <div className='map__wrapper'>
@@ -70,7 +76,8 @@ class Map extends Component {
 Map.propTypes = {
   getUserPosition: PropTypes.func,
   setCustomCoords: PropTypes.func,
-  userDetails: PropTypes.object
+  userDetails: PropTypes.object,
+  isPanelOpened: PropTypes.bool
 };
 
 export default Map;

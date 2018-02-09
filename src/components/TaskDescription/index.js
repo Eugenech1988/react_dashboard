@@ -2,22 +2,35 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+import {setTaskDescription} from "actions/taskDetailsAction";
 import './style.scss';
 
-const mapStateToProps = state => ({
-
-});
+const mapStateToProps = state => ({});
 
 const dispatchMapToProps = dispatch => ({
-
+  setTaskDescription: (data) => dispatch(setTaskDescription(data))
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskDescription extends Component {
-  handleChange() {
-    console.log('changed');
+  state = {
+    isValue: false
+  };
+  handleBlur(e) {
+    const value = e.target.value;
+    if (value)
+      this.setState({isValue: true});
+    else
+      this.setState({isValue: false});
   }
+  handleChange(e) {
+    const value = e.target.value;
+    const {setTaskDescription} = this.props;
+    setTaskDescription(value);
+  }
+  
   render() {
+    const isValue = this.state;
     return (
       <div className='task-description'>
         <div className='task-description__wrapper sidebar__wrapper'>
@@ -27,7 +40,9 @@ class TaskDescription extends Component {
           <form className='task-decription__form'>
             <div className='task-description__input-wrap'>
               <label htmlFor='' className='task-description__label'/>
-              <input type='text' className='task-description__input' onChange={::this.handleChange}/>
+              <input type='text' className={`task-description__input ${isValue ? 'task-description__input--filled' : ''}`}
+                onBlur={::this.handleBlur}
+                onChange={::this.handleChange}/>
             </div>
           </form>
         </div>
@@ -37,7 +52,7 @@ class TaskDescription extends Component {
 }
 
 TaskDescription.propTypes = {
-
+  setTaskDescription: PropTypes.string
 };
 
 export default TaskDescription;

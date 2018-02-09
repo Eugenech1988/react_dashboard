@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import loading from './loaderReducer';
-import {togglePanel} from './panelReducer';
+import {taskPanel} from './taskPanelReducer';
 import {userDetails} from './userReducer';
 
 export default combineReducers({
   loading,
-  togglePanel,
+  taskPanel,
   userDetails
 });
