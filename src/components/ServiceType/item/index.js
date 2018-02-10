@@ -33,7 +33,7 @@ ServiceItem.propTypes = {
   serviceNotify: PropTypes.string,
   serviceItemClick: PropTypes.func,
   dataIndex: PropTypes.number,
-  itemIndex: <PropTypes className=""></PropTypes>number,
+  itemIndex: PropTypes.number,
   activeItem: PropTypes.string
 };
 
