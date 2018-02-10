@@ -2,7 +2,8 @@ import {
   TOGGLE_PANEL_CONST,
   SET_TASK_DETAILS,
   SET_TASK_ADDRESS,
-  SET_ACTIVE_SERVICE_ITEM
+  SET_ACTIVE_SERVICE_ITEM,
+  SET_AVIABLE_TASK
 } from 'constants/panelConst';
 
 export const togglePanel = (payload) => {
@@ -26,9 +27,16 @@ export const setTaskAddress = (payload) => {
   };
 };
 
-export const serActiveServiceItem = (serviceItemText) => {
+export const setActiveServiceItem = (serviceItemText) => {
   return {
     type: SET_ACTIVE_SERVICE_ITEM,
     serviceItemText
+  };
+};
+
+export const setAviableTasks = (availableText) => {
+  return {
+    type: SET_AVIABLE_TASK,
+    availableText
   };
 };

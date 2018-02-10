@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './style.scss';
-import AviableTaskItem from './item';
+import AvailableTaskItem from './item';
 import {plumberTasks, electricianTasks, gardenerTasks, houseKeeperTasks, cookingTasks} from './aviableTasks';
 
 const mapStateToProps = state => ({
@@ -13,7 +13,10 @@ const mapStateToProps = state => ({
 const dispatchMapToProps = dispatch => ({});
 
 @connect(mapStateToProps, dispatchMapToProps)
-class AviableTask extends Component {
+class AvailableTask extends Component {
+  handleItemClick(e) {
+   console.log('clicked');
+  }
   render() {
     const {serviceItemText} = this.props;
     let items;
@@ -30,18 +33,17 @@ class AviableTask extends Component {
         items = cookingTasks;
     }
     return (
-      <div className='aviable-task'>
+      <div className='available-task'>
         {items &&
-        <div className='aviable-task__wrapper sidebar__wrapper'>
-          <p className='aviable-task__heading sidebar__heading'>
+        <div className='available-task__wrapper sidebar__wrapper'>
+          <p className='available-task__heading sidebar__heading'>
             PLUMBER TASKS
           </p>
-          
-          <ul className='aviable-task__list'>
+          <ul className='available-task__list'>
             {
               items.map((task, index) => {
                 return (
-                  <AviableTaskItem key={index} taskItemText={task.taskItemText}/>
+                  <AvailableTaskItem taskItemClick={::this.handleItemClick} key={index} taskItemText={task.taskItemText}/>
                 );
               })
             }
@@ -53,8 +55,8 @@ class AviableTask extends Component {
   };
 }
 
-AviableTask.propTypes = {
+AvailableTask.propTypes = {
   serviceItemText: PropTypes.string
 };
 
-export default AviableTask;
+export default AvailableTask;

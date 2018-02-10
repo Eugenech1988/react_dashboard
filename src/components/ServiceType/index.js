@@ -9,7 +9,7 @@ import plumberImg from 'assets/icons/noun_321315_cc.svg';
 import gardenImg from 'assets/icons/noun_321363_cc.svg';
 import keeperImg from 'assets/icons/noun_321399_cc.svg';
 import cookImg from 'assets/icons/noun_321395_cc.svg';
-import {serActiveServiceItem} from 'actions/taskDetailsAction';
+import {setActiveServiceItem} from 'actions/taskDetailsAction';
 
 const serviceItems = [
   {
@@ -39,7 +39,7 @@ const mapStateToProps = state => ({
 });
 
 const dispatchMapToProps = dispatch => ({
-  serActiveServiceItem: (index, text) => dispatch(serActiveServiceItem(index, text))
+  setActiveServiceItem: (index, text) => dispatch(setActiveServiceItem(index, text))
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
@@ -50,7 +50,7 @@ class ServiceType extends Component {
   handleClick(e) {
     e.stopPropagation();
     const target = e.target;
-    const {serActiveServiceItem} = this.props;
+    const {setActiveServiceItem} = this.props;
     let index;
     let text;
     if (target.tagName === 'LI') {
@@ -65,7 +65,7 @@ class ServiceType extends Component {
       index = target.parentElement.parentElement.getAttribute('data-index');
       text = target.parentElement.nextSibling.innerText;
     }
-    serActiveServiceItem(text);
+    setActiveServiceItem(text);
     this.setState({activeItem: index});
   }
   render() {

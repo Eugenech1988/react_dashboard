@@ -11,20 +11,21 @@ const dispatchMapToProps = dispatch => ({
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
-class AviableTaskItem extends Component {
+class AvailableTaskItem extends Component {
   render() {
-    const {taskItemText, taskItemClick} = this.props;
+    const {taskItemText, taskItemClick, dataIndex} = this.props;
     return (
-      <li className='aviable-task__item' onClick={taskItemClick}>
+      <li className={`available-task__item`} onClick={taskItemClick} data-index={dataIndex}>
         {taskItemText}
       </li>
     );
   };
 }
 
-AviableTaskItem.propTypes = {
+AvailableTaskItem.propTypes = {
   taskItemText: PropTypes.string,
-  taskItemClick: PropTypes.func
+  taskItemClick: PropTypes.func,
+  dataIndex: PropTypes.number
 };
 
-export default AviableTaskItem;
+export default AvailableTaskItem;

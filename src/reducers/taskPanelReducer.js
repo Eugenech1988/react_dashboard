@@ -2,14 +2,16 @@ import {
   TOGGLE_PANEL_CONST,
   SET_TASK_DETAILS,
   SET_TASK_ADDRESS,
-  SET_ACTIVE_SERVICE_ITEM
+  SET_ACTIVE_SERVICE_ITEM,
+  SET_AVIABLE_TASK
 } from 'constants/panelConst';
 
 const initialState = {
   isPanelOpened: false,
   taskDescription: '',
   taskAddress: '',
-  serviceItemText: ''
+  serviceItemText: '',
+  availableTask: ''
 };
 
 export const taskPanel = (state = initialState, action) => {
@@ -22,6 +24,8 @@ export const taskPanel = (state = initialState, action) => {
       return {...state, taskAddress: action.payload};
     case SET_ACTIVE_SERVICE_ITEM:
       return {...state, serviceItemText: action.serviceItemText};
+    case SET_AVIABLE_TASK:
+      return {...state, availableTask: action.availableTask};
     default:
       return {...state};
   }
