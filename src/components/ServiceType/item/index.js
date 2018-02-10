@@ -13,10 +13,11 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class ServiceItem extends Component {
   render() {
-    const {serviceImg, serviceNotify} = this.props;
+    const {serviceImg, serviceNotify, serviceItemClick, dataIndex, itemIndex, activeItem} = this.props;
     return (
-      <li className='service__item'>
-        <div className='service-img__wrapper'>
+      // eslint-disable-next-line
+      <li className={`service__item ${parseInt(itemIndex, 10) === parseInt(activeItem, 10) ? 'service__item--active' : ''}`} onClick={serviceItemClick} data-index={dataIndex}>
+        <div className='service__img-wrapper'>
           <img src={serviceImg} alt='' className='service__img'/>
         </div>
         <p className='service__notify'>
@@ -29,7 +30,11 @@ class ServiceItem extends Component {
 
 ServiceItem.propTypes = {
   serviceImg: PropTypes.string,
-  serviceNotify: PropTypes.string
+  serviceNotify: PropTypes.string,
+  serviceItemClick: PropTypes.func,
+  dataIndex: PropTypes.number,
+  itemIndex: PropTypes.string,
+  activeItem: PropTypes.string
 };
 
 export default ServiceItem;

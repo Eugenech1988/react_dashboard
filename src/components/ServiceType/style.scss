@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding-left: 0;
+  margin: 0;
 }
 
 .service__item {
@@ -11,18 +12,25 @@
   text-align: center;
   flex-basis: 20%;
   cursor: pointer;
+  transition: all .3s ease;
+  &--active {
+    .service__img-wrapper {
+      border: 1px solid #4c71fe;
+    }
+  }
 }
 
-.service-img__wrapper {
+.service__img-wrapper {
   width: 75px;
   height: 75px;
   display: flex;
-  margin: 0 auto;
+  margin: 0 auto 5px auto;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   text-align: center;
-  &.active {
+  transition: border .3s ease;
+  &:hover {
     border: 1px solid #4c71fe;
   }
 }

@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+import markerIcon from 'assets/icons/CombinedShapeCopy.svg';
 import {getUserPosition, setCustomCoords} from 'actions/userAction';
+import {setTaskAddress} from 'actions/taskDetailsAction';
 import './style.scss';
 
 const mapStateToProps = state => ({
@@ -13,7 +15,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getUserPosition: () => dispatch(getUserPosition()),
-  setCustomCoords: (lat, lng) => dispatch(setCustomCoords(lat, lng))
+  setCustomCoords: (lat, lng) => dispatch(setCustomCoords(lat, lng)),
+  setTaskAddress: (data) => dispatch(setTaskAddress(data))
   
 });
 
@@ -25,11 +28,12 @@ class Map extends Component {
   }
   
   componentWillReceiveProps(nextProps) {
-    const {userDetails, setCustomCoords, isPanelOpened} = nextProps;
+    const {userDetails, setCustomCoords, isPanelOpened, setTaskAddress} = nextProps;
     const mapDiv = document.getElementById('map');
     if (mapDiv) {
       let center = {lat: userDetails.lat, lng: userDetails.lng};
-      const zoom = 14;
+      const zoom = 16;
+      const geocoder = new window.google.maps.Geocoder;
       const map = new window.google.maps.Map(mapDiv, {
         zoom,
         center,
@@ -39,6 +43,7 @@ class Map extends Component {
       new window.google.maps.Marker({
         position: center,
         map,
+        icon: markerIcon,
         zIndex: 1000
       });
       window.google.maps.event.addDomListener(window, 'resize', () => {
@@ -50,12 +55,15 @@ class Map extends Component {
         setCustomCoords(customLat, customLng);
         center = {lat: customLat, lng: customLng};
         map.setCenter(center);
+        
       });
-      if (isPanelOpened)
-        map.panTo(center);
-      else {
-        map.panTo(center);
-      }
+      geocoder.geocode({location: center}, (results, status) => {
+        if (status === 'OK') {
+          setTaskAddress(results[0].formatted_address);
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
     }
   }
   
@@ -76,6 +84,7 @@ class Map extends Component {
 Map.propTypes = {
   getUserPosition: PropTypes.func,
   setCustomCoords: PropTypes.func,
+  setTaskAddress: PropTypes.func,
   userDetails: PropTypes.object,
   isPanelOpened: PropTypes.bool
 };

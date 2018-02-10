@@ -27,10 +27,20 @@ class TaskDescription extends Component {
     const value = e.target.value;
     const {setTaskDescription} = this.props;
     setTaskDescription(value);
+    if (value)
+      this.setState({isValue: true});
+    else
+      this.setState({isValue: false});
   }
-  
+  handleFocus(e) {
+    const value = e.target.value;
+    if (value)
+      this.setState({isValue: true});
+    else
+      this.setState({isValue: false});
+  }
   render() {
-    const isValue = this.state;
+    const {isValue} = this.state;
     return (
       <div className='task-description'>
         <div className='task-description__wrapper sidebar__wrapper'>
@@ -38,9 +48,10 @@ class TaskDescription extends Component {
             task description
           </div>
           <form className='task-decription__form'>
-            <div className='task-description__input-wrap'>
-              <label htmlFor='' className='task-description__label'/>
+            <div className={`task-description__input-wrap ${isValue ? 'task-description__input-wrap--active' : ''}`}>
+              <label htmlFor='' className='task-description__label'>type your description</label>
               <input type='text' className={`task-description__input ${isValue ? 'task-description__input--filled' : ''}`}
+                onFocus={::this.handleFocus}
                 onBlur={::this.handleBlur}
                 onChange={::this.handleChange}/>
             </div>

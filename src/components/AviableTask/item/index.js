@@ -13,9 +13,9 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class AviableTaskItem extends Component {
   render() {
-    const {taskItemText} = this.props;
+    const {taskItemText, taskItemClick} = this.props;
     return (
-      <li className='aviable-task__item'>
+      <li className='aviable-task__item' onClick={taskItemClick}>
         {taskItemText}
       </li>
     );
@@ -23,7 +23,8 @@ class AviableTaskItem extends Component {
 }
 
 AviableTaskItem.propTypes = {
-  taskItemText: PropTypes.string
+  taskItemText: PropTypes.string,
+  taskItemClick: PropTypes.func
 };
 
 export default AviableTaskItem;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const mapStateToProps = state => ({
-
+  taskAddress: state.taskPanel.taskAddress
 });
 
 const dispatchMapToProps = dispatch => ({
@@ -15,6 +15,7 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class UserLocation extends Component {
   render() {
+    const {taskAddress} = this.props;
     return (
       <div className='user-location'>
         <div className='user-location__wrapper sidebar__wrapper'>
@@ -22,6 +23,7 @@ class UserLocation extends Component {
             location
           </p>
           <p className='user-location__notify'>
+            {taskAddress}
             141 Ogunlana Dr, Lagos 10128
           </p>
         </div>
@@ -31,7 +33,7 @@ class UserLocation extends Component {
 }
 
 UserLocation.propTypes = {
-
+  taskAddress: PropTypes.string
 };
 
 export default UserLocation;

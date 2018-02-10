@@ -495,8 +495,10 @@ template {
 }
 
 .sidebar__wrapper {
- padding: 20px 40px;
+  padding: 20px 40px;
   border-bottom: 1px solid #f1f1f1;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .sidebar__heading {
@@ -507,6 +509,7 @@ template {
   letter-spacing: 1.5px;
   margin-top: 0;
   margin-bottom: 15px;
+  overflow: hidden;
 }
 
 
