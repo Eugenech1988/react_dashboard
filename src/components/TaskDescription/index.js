@@ -13,34 +13,26 @@ const dispatchMapToProps = dispatch => ({
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskDescription extends Component {
-  state = {
-    isValue: false
-  };
+  state = { isFocus: false};
   handleBlur(e) {
     const value = e.target.value;
-    if (value)
-      this.setState({isValue: true});
-    else
-      this.setState({isValue: false});
+    if (!value)
+      this.setState({isFocus: false});
   }
   handleChange(e) {
     const value = e.target.value;
     const {setTaskDescription} = this.props;
     setTaskDescription(value);
-    if (value)
-      this.setState({isValue: true});
-    else
-      this.setState({isValue: false});
   }
-  handleFocus(e) {
-    const value = e.target.value;
-    if (value)
-      this.setState({isValue: true});
-    else
-      this.setState({isValue: false});
+  handleFocus() {
+    this.setState({isFocus: true});
+  }
+  handleLabelClick(e) {
+    const target = e.target;
+    target.nextSibling.focus();
   }
   render() {
-    const {isValue} = this.state;
+    const {isFocus} = this.state;
     return (
       <div className='task-description'>
         <div className='task-description__wrapper sidebar__wrapper'>
@@ -48,9 +40,9 @@ class TaskDescription extends Component {
             task description
           </div>
           <form className='task-decription__form'>
-            <div className={`task-description__input-wrap ${isValue ? 'task-description__input-wrap--active' : ''}`}>
-              <label htmlFor='' className='task-description__label'>type your description</label>
-              <input type='text' className={`task-description__input ${isValue ? 'task-description__input--filled' : ''}`}
+            <div className={`task-description__input-wrap ${isFocus ? 'task-description__input-wrap--active' : ''}`}>
+              <label htmlFor='' className='task-description__label' onClick={::this.handleLabelClick}>type your description</label>
+              <input type='text' className='task-description__input'
                 onFocus={::this.handleFocus}
                 onBlur={::this.handleBlur}
                 onChange={::this.handleChange}/>

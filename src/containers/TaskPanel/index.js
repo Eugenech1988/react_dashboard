@@ -6,7 +6,7 @@ import './style.scss';
 import TaskDetails from 'components/TaskDetails';
 import UserLocation from 'components/UserLocation';
 import ServiceType from 'components/ServiceType';
-import AviableTask from 'components/AviableTask';
+import AvailableTask from 'components/AvailableTask';
 import TaskDescription from 'components/TaskDescription';
 
 const mapStateToProps = state => ({
@@ -25,7 +25,7 @@ class TaskPanel extends Component {
           <TaskDetails/>
           <UserLocation/>
           <ServiceType/>
-          <AviableTask/>
+          <AvailableTask/>
           <TaskDescription/>
         </div>
       </div>

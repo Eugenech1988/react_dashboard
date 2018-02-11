@@ -3,7 +3,7 @@ import {
   SET_TASK_DETAILS,
   SET_TASK_ADDRESS,
   SET_ACTIVE_SERVICE_ITEM,
-  SET_AVIABLE_TASK
+  SET_AVAILABLE_TASK
 } from 'constants/panelConst';
 
 const initialState = {
@@ -24,7 +24,7 @@ export const taskPanel = (state = initialState, action) => {
       return {...state, taskAddress: action.payload};
     case SET_ACTIVE_SERVICE_ITEM:
       return {...state, serviceItemText: action.serviceItemText};
-    case SET_AVIABLE_TASK:
+    case SET_AVAILABLE_TASK:
       return {...state, availableTask: action.availableTask};
     default:
       return {...state};

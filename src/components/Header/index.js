@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Logo from 'components/Logo';
 import Nav from 'components/Nav';
@@ -19,7 +18,5 @@ const Header = props => {
     </div>
   );
 };
-
-Header.propTypes = {};
 
 export default Header;
