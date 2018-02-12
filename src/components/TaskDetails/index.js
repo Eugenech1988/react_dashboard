@@ -30,7 +30,7 @@ class TaskDetails extends Component {
   }
   
   componentWillReceiveProps(nextProps) {
-    const {currentTaskDetails} = nextProps;
+    const {currentTaskDetails, availableTask} = nextProps;
   }
   
   render() {
@@ -63,6 +63,7 @@ class TaskDetails extends Component {
             {taskAddress}
           </p>
           <Button
+            isDisabled={availableTask === ''}
             btnText='create project'
             aditionalCls='btn--confirm'
             btnFunc={::this.handleSubmit}

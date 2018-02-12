@@ -15,9 +15,9 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class Button extends Component {
   render() {
-    const {aditionalCls, btnText, btnFunc} = this.props;
+    const {aditionalCls, btnText, btnFunc, isDisabled} = this.props;
     return (
-      <button className={`btn ${aditionalCls}`} onClick={btnFunc}>
+      <button className={`btn ${aditionalCls} ${isDisabled ? 'disabled' : ''}`} onClick={btnFunc}>
         <span>
           {btnText}
         </span>
@@ -29,6 +29,7 @@ class Button extends Component {
 Button.propTypes = {
   btnText: PropTypes.string,
   aditionalCls: PropTypes.string,
+  isDisabled: PropTypes.bool,
   btnFunc: PropTypes.func
 };
 

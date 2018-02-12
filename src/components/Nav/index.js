@@ -7,7 +7,7 @@ const Nav = props => {
     <div className='nav'>
       <div className='nav__wrapper'>
         <NavItem linkTo='/' linkText='Dashboard'/>
-        <NavItem linkTo={'/history'} linkText='History'/>
+        <NavItem linkTo={'/history'}  linkText='History'/>
         <NavItem linkTo={'/profile'} sided linkText='Profile'/>
       </div>
     </div>

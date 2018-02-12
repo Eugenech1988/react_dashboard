@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 const NavItem = props => {
   const {linkTo, linkText, active, sided} = props;
   return (
-    <NavLink className={`nav__link ${sided ? 'nav__link--sided' : ''}`} to={linkTo}>{linkText}</NavLink>
+    <NavLink exact className={`nav__link ${sided ? 'nav__link--sided' : ''}`} to={linkTo}>{linkText}</NavLink>
   );
 };
 

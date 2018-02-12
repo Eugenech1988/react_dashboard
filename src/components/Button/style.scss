@@ -16,6 +16,10 @@
     letter-spacing: 0.7px;
     line-height: 40px;
   }
+  &.disabled {
+    pointer-events: none;
+    background-color: #909090;
+  }
   &--confirm {
     background-color: #4c71fe;
     &:hover {
