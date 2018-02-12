@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import DashContainer from 'containers/DashContainer';
+import Dashboard from 'containers/Dashboard';
+import History from 'containers/History';
 
 class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path='/' component={DashContainer}/>
+        <Route exact path='/' component={Dashboard}/>
+        <Route exact path='/history' component={History}/>
       </Switch>
     );
   }

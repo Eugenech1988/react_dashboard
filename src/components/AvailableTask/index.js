@@ -81,7 +81,7 @@ class AvailableTask extends Component {
 AvailableTask.propTypes = {
   serviceItemText: PropTypes.string,
   availableTask: PropTypes.string,
-  setAvailableTasks:PropTypes.func
+  setAvailableTasks: PropTypes.func
 };
 
 export default AvailableTask;

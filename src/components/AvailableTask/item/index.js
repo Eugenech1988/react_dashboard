@@ -27,7 +27,7 @@ AvailableTaskItem.propTypes = {
   taskItemClick: PropTypes.func,
   dataIndex: PropTypes.number,
   itemIndex: PropTypes.string,
-  activeItem: PropTypes.string
+  activeItem: PropTypes.number
   
 };
 

@@ -7,13 +7,14 @@ import './style.scss';
 import Loader from 'components/Loader';
 import AddTask from 'components/AddTask';
 import TaskPanel from 'containers/TaskPanel';
+import TaskList from 'components/TaskList';
 
 const mapStateToProps = state => ({
   loading: state.loading
 });
 
 @connect(mapStateToProps)
-class DashContainer extends React.Component {
+class Dashboard extends React.Component {
   render() {
     const {loading} = this.props;
     return (
@@ -24,13 +25,14 @@ class DashContainer extends React.Component {
         <Map/>
         <AddTask/>
         <TaskPanel/>
+        <TaskList/>
       </div>
     );
   }
 }
 
-DashContainer.propTypes = {
+Dashboard.propTypes = {
   loading: PropTypes.bool
 };
 
-export default DashContainer;
+export default Dashboard;

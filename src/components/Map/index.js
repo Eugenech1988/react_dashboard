@@ -10,7 +10,7 @@ import './style.scss';
 const mapStateToProps = state => ({
   loading: state.loading,
   userDetails: state.userDetails,
-  isPanelOpened: state.taskPanel.isPanelOpened
+  // isPanelOpened: state.taskPanel.isPanelOpened
 });
 
 const mapDispatchToProps = dispatch => ({
