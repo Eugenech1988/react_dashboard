@@ -76,4 +76,11 @@
   }
 }
 
-
+@media (max-width: 767px) {
+  .task-list {
+    top: 65px;
+    left: 15px;
+    max-width: calc(100% - 30px);
+    max-height: calc(100vh - 3px);
+  }
+}

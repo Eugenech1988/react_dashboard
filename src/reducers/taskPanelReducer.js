@@ -16,10 +16,7 @@ const initialState = {
 };
 
 const taskInitialState = {
-  taskDetails: '',
-  taskDate: '',
-  taskLocation: '',
-  taskId: ''
+
 };
 
 export const taskPanel = (state = initialState, action) => {

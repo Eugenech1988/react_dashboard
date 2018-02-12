@@ -9,7 +9,7 @@ import './style.scss';
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  userDetails: state.userDetails,
+  userDetails: state.userDetails
   // isPanelOpened: state.taskPanel.isPanelOpened
 });
 
@@ -29,6 +29,7 @@ class Map extends Component {
   
   componentWillReceiveProps(nextProps) {
     const {userDetails, setCustomCoords, isPanelOpened, setTaskAddress} = nextProps;
+    console.log(nextProps);
     const mapDiv = document.getElementById('map');
     if (mapDiv) {
       let center = {lat: userDetails.lat, lng: userDetails.lng};

@@ -23,3 +23,12 @@
   text-transform: uppercase;
   letter-spacing: 0.7px;
 }
+
+@media (max-width: 767px) {
+  .add-task__btn {
+    top: 5px;
+    left: 15px;
+    margin-top: 0;
+    max-width: calc(100% - 30px)
+  }
+}

@@ -23,6 +23,7 @@ class Dashboard extends React.Component {
         <Loader/>
         }
         <Map/>
+        <Loader/>
         <AddTask/>
         <TaskPanel/>
         <TaskList/>
