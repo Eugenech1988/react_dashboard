@@ -24,7 +24,6 @@ class UserLocation extends Component {
           </p>
           <p className='user-location__notify'>
             {taskAddress}
-            141 Ogunlana Dr, Lagos 10128
           </p>
         </div>
       </div>
