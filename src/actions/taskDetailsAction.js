@@ -41,13 +41,3 @@ export const setAvailableTasks = (availableTask) => {
     availableTask
   };
 };
-
-export const setTaskDetails = (taskDate, taskDetails, taskLocation, taskId) => {
-  return {
-    type: SET_TASK_ITEM_DETAILS,
-    taskDetails,
-    taskDate,
-    taskLocation,
-    taskId
-  };
-};

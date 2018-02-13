@@ -49,9 +49,9 @@ class AvailableTask extends Component {
           <p className='available-task__heading sidebar__heading'>
             {
               (serviceItemText === 'Plumber' && 'plumber tasks') ||
-              (serviceItemText === 'Elecrtician' && 'electrician tasks') ||
+              (serviceItemText === 'Electrician' && 'electrician tasks') ||
               (serviceItemText === 'Gardener' && 'gardener tasks') ||
-              (serviceItemText === 'HouseKeeper' && 'housekeeper tasks') ||
+              (serviceItemText === 'Housekeeper' && 'housekeeper tasks') ||
               (serviceItemText === 'Cooking' && 'Cooking tasks')
             }
           </p>

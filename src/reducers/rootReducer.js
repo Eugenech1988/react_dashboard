@@ -1,13 +1,14 @@
 import { combineReducers } from 'redux';
 import loading from './loaderReducer';
-import {taskPanel, currentTaskDetails} from './taskPanelReducer';
+import {taskPanel} from './taskPanelReducer';
 import {userDetails} from './userReducer';
 import {taskListItems} from './taskListReducer';
+import {reducer as formReducer} from 'redux-form';
 
 export default combineReducers({
   loading,
   taskPanel,
   userDetails,
-  currentTaskDetails,
-  taskListItems
+  taskListItems,
+  form: formReducer
 });

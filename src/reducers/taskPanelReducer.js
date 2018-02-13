@@ -12,11 +12,7 @@ const initialState = {
   taskDescription: '',
   taskAddress: '',
   serviceItemText: '',
-  availableTask: '',
-};
-
-const taskInitialState = {
-
+  availableTask: ''
 };
 
 export const taskPanel = (state = initialState, action) => {
@@ -31,21 +27,6 @@ export const taskPanel = (state = initialState, action) => {
       return {...state, serviceItemText: action.serviceItemText};
     case SET_AVAILABLE_TASK:
       return {...state, availableTask: action.availableTask};
-    default:
-      return {...state};
-  }
-};
-
-export const currentTaskDetails = (state = taskInitialState, action) => {
-  switch (action.type) {
-    case SET_TASK_ITEM_DETAILS:
-      return {
-        ...state,
-        taskDetails: action.taskDetails,
-        taskDate: action.taskDate,
-        taskLocation: action.taskLocation,
-        taskId: action.taskId
-      };
     default:
       return {...state};
   }
