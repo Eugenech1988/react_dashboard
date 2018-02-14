@@ -25,7 +25,7 @@ class TaskItem extends Component {
           <p className='task-item__description'>
             {taskItemDescription}
           </p>
-          <div className="task-item__location">
+          <div className='task-item__location'>
             {taskItemLocation}
           </div>
           <div className='task-item__btn-wrapp'>

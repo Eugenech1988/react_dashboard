@@ -1,35 +1,59 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import TaskItem from './item';
 import './style.scss';
 
+const Fade = ({children, ...props}) => (
+  <CSSTransition
+    {...props}
+    timeout={1000}
+    classNames="fade"
+  >
+    {children}
+  </CSSTransition>
+);
+
 const mapStateToProps = state => ({
-  currentTaskDetails: state.currentTaskDetails
+  currentTaskDetails: state.currentTaskDetails,
+  taskListItems: state.taskListItems
 });
 
-const dispatchMapToProps = dispatch => ({
-});
+const dispatchMapToProps = dispatch => ({});
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskList extends Component {
   componentWillReceiveProps(nextProps) {
-
+  
   }
   
   render() {
+    const {taskListItems} = this.props;
     return (
-      <ul className='task-list'>
-        <TaskItem
-          taskItemDate='05 05 2017 16:00'
-          taskItemDescription='bla bla bla'
-        />
-      </ul>
+      <TransitionGroup className='task-list'>
+        {
+          taskListItems.map((item, index) => {
+            return (
+              <Fade>
+                <TaskItem
+                  key={index}
+                  taskItemDate={item.date}
+                  taskItemDescription={item.details}
+                  taskItemLocation={item.location}
+                />
+              </Fade>
+            );
+          })
+        }
+      </TransitionGroup>
     );
   }
 }
 
-TaskList.propTypes = {};
+TaskList.propTypes = {
+  taskListItems: PropTypes.array
+};
 
 export default TaskList;

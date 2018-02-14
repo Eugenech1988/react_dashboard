@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 import TaskDetailsForm from './form';
-import {addTaskToList} from "actions/taskListActions";
+import {addTaskToList} from 'actions/taskListActions';
 import moment from 'moment';
 
 const mapStateToProps = state => ({
@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
   serviceItemText: state.taskPanel.serviceItemText,
   availableTask: state.taskPanel.availableTask,
   taskDescription: state.taskPanel.taskDescription,
+  taskListItems: state.taskListItems
 });
 
 const dispatchMapToProps = dispatch => ({
@@ -20,11 +21,15 @@ const dispatchMapToProps = dispatch => ({
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskDetails extends Component {
-  submit(values) {
-    const {addTaskToList} = this.props;
-    console.log(values);
-    addTaskToList(values);
-  }
+  submit = (values) => {
+    const {addTaskToList, taskListItems} = this.props;
+    const thisMoment = moment().format('DD.MM.YYYY h:mm A');
+    const idArray = [];
+    for (let i = 0; i < taskListItems; i++)
+      idArray.push(taskListItems.id);
+    const maxId = Math.max(...idArray);
+    addTaskToList(Object.assign({}, values, {id: maxId, date: thisMoment}));
+  };
   
   render() {
     const {taskAddress, serviceItemText, availableTask, taskDescription} = this.props;
@@ -56,7 +61,7 @@ class TaskDetails extends Component {
             {taskAddress}
           </p>
           <TaskDetailsForm
-            onSubmit={::this.submit}
+            onSubmit={this.submit}
           />
         </div>
       </div>
@@ -69,7 +74,8 @@ TaskDetails.propTypes = {
   serviceItemText: PropTypes.string,
   availableTask: PropTypes.string,
   taskDescription: PropTypes.string,
-  addTaskToList: PropTypes.func
+  addTaskToList: PropTypes.func,
+  taskListItems: PropTypes.func
 };
 
 export default TaskDetails;

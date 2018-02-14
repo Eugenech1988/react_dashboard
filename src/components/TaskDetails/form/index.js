@@ -65,8 +65,6 @@ class TaskDetailsForm extends Component {
 TaskDetailsForm = reduxForm({
   form: 'taskDetails',
   initialValues: {
-    'heading': '',
-    'content': '',
     'date': '',
     'id': 0
   }
