@@ -25,9 +25,17 @@ class TaskDetails extends Component {
     const {addTaskToList, taskListItems} = this.props;
     const thisMoment = moment().format('DD.MM.YYYY h:mm A');
     const idArray = [];
-    for (let i = 0; i < taskListItems; i++)
-      idArray.push(taskListItems.id);
-    const maxId = Math.max(...idArray);
+    let maxId;
+    if (taskListItems.length > 1) {
+      for (let i = 0; i < taskListItems.length; i++) {
+        idArray.push(taskListItems[i].id);
+      }
+      maxId = Math.max(...idArray) + 1;
+    } else if (taskListItems.length === 0) {
+      maxId = 0;
+    } else if (taskListItems.length === 1) {
+      maxId = 1;
+    }
     addTaskToList(Object.assign({}, values, {id: maxId, date: thisMoment}));
   };
   

@@ -6,15 +6,12 @@
   border: none;
   cursor: pointer;
   transition: all .3s ease;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  line-height: 40px;
   &:focus {
     outline: none;
-  }
-  span {
-    height: 21px;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    line-height: 40px;
   }
   &.disabled {
     pointer-events: none;
@@ -28,8 +25,6 @@
     &:active {
       background-color: darken(#4c71fe, 5%);
     }
-    span {
-      color: #ffffff;
-    }
+    color: #ffffff;
   }
 }

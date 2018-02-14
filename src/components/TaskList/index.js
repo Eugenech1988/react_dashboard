@@ -36,12 +36,12 @@ class TaskList extends Component {
         {
           taskListItems.map((item, index) => {
             return (
-              <Fade>
+              <Fade key={index}>
                 <TaskItem
-                  key={index}
                   taskItemDate={item.date}
                   taskItemDescription={item.details}
                   taskItemLocation={item.location}
+                  dataIndex={item.id}
                 />
               </Fade>
             );

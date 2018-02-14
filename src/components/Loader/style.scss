@@ -39,7 +39,8 @@
 
 .loaderAnimate-leave.loaderAnimate-leave-active {
   opacity: 0;
-  transition: opacity 200ms ease-in;
+  max-height: 0;
+  transition: opacity 200ms ease-in, max-height 200ms ease-out;
 }
 
 @media (max-width: 767px) {

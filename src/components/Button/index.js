@@ -4,13 +4,9 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => ({});
 
-});
-
-const dispatchMapToProps = dispatch => ({
-
-});
+const dispatchMapToProps = dispatch => ({});
 
 @connect(mapStateToProps, dispatchMapToProps)
 class Button extends Component {
@@ -18,9 +14,7 @@ class Button extends Component {
     const {aditionalCls, btnText, btnFunc, isDisabled} = this.props;
     return (
       <button className={`btn ${aditionalCls} ${isDisabled ? 'disabled' : ''}`} onClick={btnFunc}>
-        <span>
-          {btnText}
-        </span>
+        {btnText}
       </button>
     );
   };

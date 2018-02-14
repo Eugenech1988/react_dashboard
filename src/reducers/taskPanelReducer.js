@@ -4,7 +4,6 @@ import {
   SET_TASK_ADDRESS,
   SET_ACTIVE_SERVICE_ITEM,
   SET_AVAILABLE_TASK,
-  SET_TASK_ITEM_DETAILS
 } from 'constants/panelConst';
 
 const initialState = {
