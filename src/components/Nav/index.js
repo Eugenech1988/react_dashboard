@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import NavItem from './item';
 
 const Nav = props => {
-  const {opened} = props;
   return (
-    <div className={`nav ${opened ? 'nav--opened' : ''}`}>
+    <div className='nav'>
       <div className='nav__wrapper'>
         <NavItem linkTo='/' linkText='Dashboard'/>
         <NavItem linkTo={'/history'} linkText='History'/>

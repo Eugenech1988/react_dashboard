@@ -17,5 +17,6 @@
 @media (max-width: 1000px) {
   .task-panel__wrapper {
     max-width: 400px;
+    height: calc(100vh - 35px);
   }
 }

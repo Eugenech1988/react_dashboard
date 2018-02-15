@@ -25,7 +25,7 @@ class TaskItem extends Component {
   render() {
     const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex} = this.props;
     return (
-      <li className='task-item'>
+      <div className='task-item'>
         <div className='task-item__wrapper'>
           <p className='task-item__date'>
             {taskItemDate}
@@ -41,7 +41,7 @@ class TaskItem extends Component {
             <Button btnText='delete' btnFunc={::this.handleDeleteClick} aditionalCls='task-item__delete-btn'/>
           </div>
         </div>
-      </li>
+      </div>
     );
   };
 }
@@ -51,7 +51,7 @@ TaskItem.propTypes = {
   taskItemDescription: PropTypes.string,
   taskItemLocation: PropTypes.string,
   removeTaskFromList: PropTypes.string,
-  dataIndex: PropTypes.string
+  dataIndex: PropTypes.number
 };
 
 export default TaskItem;

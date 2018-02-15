@@ -513,6 +513,9 @@ template {
 }
 
 @media (max-width: 767px) {
+  .wrapper {
+    padding-top: 35px;
+  }
   .content-container {
     padding-left: 15px;
     padding-right: 15px;
