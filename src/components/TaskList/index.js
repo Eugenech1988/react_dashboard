@@ -10,14 +10,13 @@ const Fade = ({children, ...props}) => (
   <CSSTransition
     {...props}
     timeout={1000}
-    classNames="fade"
+    classNames='fade'
   >
     {children}
   </CSSTransition>
 );
 
 const mapStateToProps = state => ({
-  currentTaskDetails: state.currentTaskDetails,
   taskListItems: state.taskListItems
 });
 
@@ -25,16 +24,13 @@ const dispatchMapToProps = dispatch => ({});
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskList extends Component {
-  componentWillReceiveProps(nextProps) {
-  
-  }
-  
   render() {
-    const {taskListItems} = this.props;
+    const currentTaskList = JSON.parse(localStorage.getItem('currentTaskList'));
     return (
       <TransitionGroup className='task-list'>
         {
-          taskListItems.map((item, index) => {
+          currentTaskList &&
+          currentTaskList.map((item, index) => {
             return (
               <Fade key={index}>
                 <TaskItem
