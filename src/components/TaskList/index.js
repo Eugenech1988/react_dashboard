@@ -1,20 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import TaskItem from './item';
 import './style.scss';
-
-const Fade = ({children, ...props}) => (
-  <CSSTransition
-    {...props}
-    timeout={1000}
-    classNames='fade'
-  >
-    {children}
-  </CSSTransition>
-);
 
 const mapStateToProps = state => ({
   taskListItems: state.taskListItems
@@ -27,23 +16,22 @@ class TaskList extends Component {
   render() {
     const currentTaskList = JSON.parse(localStorage.getItem('currentTaskList'));
     return (
-      <TransitionGroup className='task-list'>
+      <ul className='task-list'>
         {
           currentTaskList &&
           currentTaskList.map((item, index) => {
             return (
-              <Fade key={index}>
-                <TaskItem
-                  taskItemDate={item.date}
-                  taskItemDescription={item.details}
-                  taskItemLocation={item.location}
-                  dataIndex={item.id}
-                />
-              </Fade>
+              <TaskItem
+                key={index}
+                taskItemDate={item.date}
+                taskItemDescription={item.details}
+                taskItemLocation={item.location}
+                dataIndex={item.id}
+              />
             );
           })
         }
-      </TransitionGroup>
+      </ul>
     );
   }
 }

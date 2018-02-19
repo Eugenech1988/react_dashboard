@@ -20,6 +20,7 @@ class Header extends Component {
   handleClick() {
     const {headerToggle} = this.props;
     headerToggle();
+    console.log('clicked');
   }
   render() {
     const {isHeaderOpened} = this.props;
