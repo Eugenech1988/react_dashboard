@@ -55,6 +55,7 @@ class ServiceType extends Component {
     let text;
     if (target.tagName === 'LI') {
       index = target.getAttribute('data-index');
+      text = target.childNodes[1].innerText;
     } else if (target.tagName === 'DIV') {
       index = target.parentElement.getAttribute('data-index');
       text = target.nextSibling.innerText;

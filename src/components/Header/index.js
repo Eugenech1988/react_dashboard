@@ -17,10 +17,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 @connect(mapStateToProps, mapDispatchToProps)
 class Header extends Component {
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     const {headerToggle} = this.props;
     headerToggle();
-    console.log('clicked');
   }
   render() {
     const {isHeaderOpened} = this.props;
