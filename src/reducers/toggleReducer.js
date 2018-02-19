@@ -1,16 +1,17 @@
-import {
-	HEADER_TOGGLE
-} from 'constants/toggleConst';
+import {HEADER_TOGGLE, TOGGLE_PANEL_CONST} from 'constants/toggleConst';
 
 const initialState = {
-	isHeaderOpened: false
+  isHeaderOpened: false,
+  isPanelOpened: false
 };
 
 export const togglers = (state = initialState, action) => {
-	switch (action.type) {
-		case HEADER_TOGGLE:
-			return {...state, isHeaderOpened: !state.isHeaderOpened};
-		default:
-			return state;
+  switch (action.type) {
+    case TOGGLE_PANEL_CONST:
+      return {...state, isPanelOpened: !state.isPanelOpened};
+    case HEADER_TOGGLE:
+		  return {...state, isHeaderOpened: !state.isHeaderOpened};
+    default:
+		  return state;
 	}
 };

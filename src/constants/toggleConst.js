@@ -1,1 +1,2 @@
 export const HEADER_TOGGLE = 'HEADER_TOGGLE';
+export const TOGGLE_PANEL_CONST = 'TOGGLE_PANEL_CONST';

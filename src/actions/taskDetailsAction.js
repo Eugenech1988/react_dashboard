@@ -1,17 +1,9 @@
 import {
-  TOGGLE_PANEL_CONST,
   SET_TASK_DETAILS,
   SET_TASK_ADDRESS,
   SET_ACTIVE_SERVICE_ITEM,
   SET_AVAILABLE_TASK
 } from 'constants/panelConst';
-
-export const togglePanel = (payload) => {
-  return {
-    type: TOGGLE_PANEL_CONST,
-    payload
-  };
-};
 
 export const setTaskDescription = (payload) => {
   return {

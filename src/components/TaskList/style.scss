@@ -46,6 +46,8 @@
   min-height: initial;
   transition: all .3s ease;
   line-height: 27px;
+  padding-top: 0;
+  padding-bottom: 0;
   color: white;
   font-size: 14px;
   &:hover {
@@ -71,9 +73,29 @@
 
 @media (max-width: 767px) {
   .task-list {
-    top: 65px;
+    top: 10px;
     left: 15px;
     max-width: calc(100% - 30px);
-    max-height: calc(100vh - 3px);
+    max-height: calc(100vh - 45px);
+  }
+  .task-item {
+    padding: 15px;
+  }
+  .task-item__date {
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .task-item__description {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .task-item__edit-btn,
+  .task-item__delete-btn {
+    font-size: 12px;
+    line-height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }

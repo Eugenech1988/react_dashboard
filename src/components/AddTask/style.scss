@@ -26,10 +26,23 @@
 
 @media (max-width: 767px) {
   .add-task__btn {
+    position: fixed;
     top: 5px;
-    left: 15px;
+    margin-top: 0;
     right: 15px;
-    max-width: 400px;
-    margin: 0 auto;
+    left: initial;
+    z-index: 10000;
+    max-width: 110px;
+    height: auto;
+    padding: 0;
+    background-color: #4c71fe;
+    color: white;
+    border: 0;
+    line-height: 26px;
+    font-size: 12px;
+    box-shadow: none;
+    &:hover {
+      box-shadow: none;
+    }
   }
 }

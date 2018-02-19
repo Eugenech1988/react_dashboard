@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './style.scss';
-import {togglePanel} from 'actions/taskDetailsAction';
+import {togglePanel} from 'actions/toggleAction';
 
 const mapStateToProps = state => ({
-  isPanelOpened: state.taskPanel.isPanelOpened
+  isPanelOpened: state.togglers.isPanelOpened
 });
 
 const dispatchMapToProps = dispatch => ({
@@ -20,7 +20,7 @@ class AddTask extends Component {
     const {togglePanel, isPanelOpened} = this.props;
     togglePanel();
     if (!isPanelOpened)
-      target.innerText = 'close task panel';
+      target.innerText = 'close panel';
     else
       target.innerText = '+ new task';
   }

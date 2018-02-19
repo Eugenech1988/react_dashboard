@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
   headerToggle: () => dispatch(headerToggle())
 });
 
-@connect(mapStateToProps, mapDispatchToProps)
+@connect(mapStateToProps, mapDispatchToProps, null, {pure: false})
 class Header extends Component {
   handleClick(e) {
     e.preventDefault();

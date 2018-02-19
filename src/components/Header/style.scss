@@ -143,11 +143,11 @@
     margin: 0;
     line-height: 30px;
     border: none;
-    &.active {
-      color: rgba(231, 89, 113, .7);
-    }
     &:hover {
       color: black;
+    }
+    &.active {
+      color: rgba(231, 89, 113, .7);
     }
     &--sided {
       position: relative;
