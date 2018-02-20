@@ -7,3 +7,8 @@ export const getUserPositionApi = (options) => {
     navigator.geolocation.getCurrentPosition(resolve, reject, options);
   });
 };
+
+export const detectPhone = () => {
+  const viewportWidth = window.innerWidth;
+  return (viewportWidth > 767);
+};

@@ -43,9 +43,11 @@ class TaskDescription extends Component {
             <div className={`task-description__input-wrap ${isFocus ? 'task-description__input-wrap--active' : ''}`}>
               <label htmlFor='' className='task-description__label' onClick={::this.handleLabelClick}>type your description</label>
               <input type='text' className='task-description__input'
+                ref='input'
                 onFocus={::this.handleFocus}
                 onBlur={::this.handleBlur}
-                onChange={::this.handleChange}/>
+                onChange={::this.handleChange}
+              />
             </div>
           </form>
         </div>

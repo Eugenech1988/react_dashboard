@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+
 const mapStateToProps = state => ({
 
 });
@@ -14,7 +15,9 @@ const dispatchMapToProps = dispatch => ({
 class HistoryList extends Component {
   render() {
     return (
-      <div />
+      <div className='history-list'>
+        HistoryItem
+      </div>
     );
   };
 }

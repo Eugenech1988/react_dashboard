@@ -24,25 +24,46 @@
   letter-spacing: 0.7px;
 }
 
+.add-task__icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: auto;
+  max-width: 27px;
+  margin-bottom: 4px;
+  margin-right: 10px;
+}
+
 @media (max-width: 767px) {
   .add-task__btn {
-    position: fixed;
-    top: 5px;
-    margin-top: 0;
-    right: 15px;
-    left: initial;
-    z-index: 10000;
-    max-width: 110px;
-    height: auto;
+    bottom: 15px;
     padding: 0;
+    display: block;
+    top: initial;
+    right: initial;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
+    height: auto;
+    width: calc(100% - 30px);
     background-color: #4c71fe;
+    max-height: initial;
     color: white;
     border: 0;
-    line-height: 26px;
+    line-height: 45px;
     font-size: 12px;
     box-shadow: none;
+    z-index: 100;
     &:hover {
       box-shadow: none;
     }
+  }
+  .add-task__icon {
+    z-index: 1000;
+    max-width: 20px;
+  }
+  .add-task__btn-wrap {
+    background-color: white;
+    width: 100%;
   }
 }
