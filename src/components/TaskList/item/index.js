@@ -33,9 +33,9 @@ class TaskItem extends Component {
           <p className='task-item__description'>
             {taskItemDescription}
           </p>
-          <div className='task-item__location'>
+          <p className='task-item__location'>
             {taskItemLocation}
-          </div>
+          </p>
           <div className='task-item__btn-wrapp' data-index={dataIndex}>
             <Button btnText='edit' aditionalCls='task-item__edit-btn'/>
             <Button btnText='delete' btnFunc={::this.handleDeleteClick} aditionalCls='task-item__delete-btn'/>

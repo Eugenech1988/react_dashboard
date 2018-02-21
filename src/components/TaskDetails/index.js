@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 import TaskDetailsForm from './form';
 import {addTaskToList} from 'actions/taskListActions';
+import {addItemToHistory} from 'actions/historyAction';
 import moment from 'moment';
 
 const mapStateToProps = state => ({
@@ -16,13 +17,14 @@ const mapStateToProps = state => ({
 });
 
 const dispatchMapToProps = dispatch => ({
-  addTaskToList: (data) => dispatch(addTaskToList(data))
+  addTaskToList: (data) => dispatch(addTaskToList(data)),
+  addItemToHistory: (data) => dispatch(addItemToHistory(data))
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskDetails extends Component {
   submit = (values) => {
-    const {addTaskToList, taskListItems} = this.props;
+    const {addTaskToList, taskListItems, addItemToHistory} = this.props;
     const thisMoment = moment().format('DD.MM.YYYY h:mm A');
     const idArray = [];
     let maxId;
@@ -37,6 +39,7 @@ class TaskDetails extends Component {
       maxId = 1;
     }
     addTaskToList(Object.assign({}, values, {id: maxId, date: thisMoment}));
+    addItemToHistory(Object.assign({}, values, {id: maxId, date: thisMoment}));
   };
   
   render() {
@@ -83,7 +86,8 @@ TaskDetails.propTypes = {
   availableTask: PropTypes.string,
   taskDescription: PropTypes.string,
   addTaskToList: PropTypes.func,
-  taskListItems: PropTypes.func
+  taskListItems: PropTypes.func,
+  addItemToHistory: PropTypes.func
 };
 
 export default TaskDetails;

@@ -25,7 +25,7 @@ class TaskList extends Component {
                 key={index}
                 taskItemDate={item.date}
                 taskItemDescription={item.details}
-                taskItemLocation={item.location}
+                taskItemLocation={item.address}
                 dataIndex={item.id}
               />
             );

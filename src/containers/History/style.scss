@@ -1,0 +1,12 @@
+.history__wrap {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-image: url('../../assets/images/light-blue-background-4.jpg');
+  background-size: cover;
+  background-repeat: none;
+  padding: 15px;
+  overflow-y: auto;
+  @media (max-width: 767px) {
+    height: calc(100vh - 35px);
+  }
+}

@@ -2,28 +2,41 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+import HistoryItem from './item';
+import './style.scss';
 
 const mapStateToProps = state => ({
-
+  history: state.history
 });
 
-const dispatchMapToProps = dispatch => ({
-
-});
+const dispatchMapToProps = dispatch => ({});
 
 @connect(mapStateToProps, dispatchMapToProps)
 class HistoryList extends Component {
   render() {
+    const listHistory = JSON.parse(localStorage.getItem('listHistory'));
     return (
       <div className='history-list'>
-        HistoryItem
+        {
+          listHistory &&
+          listHistory.map((item, index) => {
+            return (
+              <HistoryItem
+                key={index}
+                historyItemDate={item.date}
+                historyItemDescription={item.details}
+                historyItemLocation={item.address}
+              />
+            );
+          })
+        }
       </div>
     );
   };
 }
 
 HistoryList.propTypes = {
-
+  history: PropTypes.array
 };
 
 export default HistoryList;
