@@ -6,6 +6,7 @@
   background-repeat: none;
   padding: 15px;
   overflow-y: auto;
+  animation: fadeIn .4s;
   @media (max-width: 767px) {
     height: calc(100vh - 35px);
   }
