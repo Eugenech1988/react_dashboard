@@ -3,7 +3,7 @@
 }
 
 .confirm-modal__overlay {
-  animation: fadeIn .4s;
+  animation: fade .4s;
   z-index: 1000;
   position: fixed;
   top: 0;
@@ -13,6 +13,14 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, .8);
+  &.active {
+    display: none;
+    animation: fade .4s reverse;
+    opacity: 0;
+    .confirm-modal__inner-wrapper {
+      animation: modal .4s reverse;
+    }
+  }
 }
 
 .confirm-modal__inner-wrapper {

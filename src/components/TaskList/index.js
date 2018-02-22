@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import TaskItem from './item';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import './style.scss';
 
 const mapStateToProps = state => ({
@@ -31,6 +32,7 @@ class TaskList extends Component {
             );
           })
         }
+        
       </ul>
     );
   }

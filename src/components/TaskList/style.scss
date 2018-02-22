@@ -22,9 +22,9 @@
   will-change: box-shadow;
   margin-top: 0;
   margin-bottom: 10px;
-  animation: fadeIn .5s;
+  animation: fade .5s;
   &.closed {
-    animation: fadeOut .5s;
+    animation: fade .5s reverse;
   }
 }
 

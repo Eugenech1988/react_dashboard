@@ -16,7 +16,7 @@ class HistoryList extends Component {
   render() {
     const listHistory = JSON.parse(localStorage.getItem('listHistory'));
     return (
-      <div className='history-list'>
+      <ul className='history-list'>
         {
           listHistory &&
           listHistory.map((item, index) => {
@@ -30,7 +30,7 @@ class HistoryList extends Component {
             );
           })
         }
-      </div>
+      </ul>
     );
   };
 }

@@ -6,7 +6,6 @@ const HistoryItem = props => {
   return (
     <div className='history-item'>
       <div className='history-item__wrapper'>
-        
         <p className='history-item__date'>
           {historyItemDate}
         </p>
@@ -24,7 +23,7 @@ const HistoryItem = props => {
 History.propTypes = {
   historyItemDate: PropTypes.string,
   historyItemDescription: PropTypes.string,
-  historyItemLocation: PropTypes.string,
+  historyItemLocation: PropTypes.string
 };
 
 export default HistoryItem;

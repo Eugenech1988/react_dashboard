@@ -3,29 +3,29 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Button from 'components/Button';
-import {removeTaskFromList} from 'actions/taskListActions';
+import {toggleConfirmModal} from 'actions/toggleAction';
+import ConfirmModal from 'components/ConfirmModal';
 
 const mapStateToProps = state => ({
-
+  isConfirmModalOpened: state.togglers.isConfirmModalOpened
 });
 
 const dispatchMapToProps = dispatch => ({
-  removeTaskFromList: (data) => dispatch(removeTaskFromList(data))
+  toggleConfirmModal: () => dispatch(toggleConfirmModal())
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskItem extends Component {
   handleDeleteClick(e) {
     const index = e.target.parentElement.getAttribute('data-index');
-    const {removeTaskFromList} = this.props;
+    const {toggleConfirmModal} = this.props;
     e.preventDefault();
-    removeTaskFromList(index);
+    toggleConfirmModal();
   }
   render() {
-    const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex} = this.props;
-    const {isClosed} = this.state;
+    const {taskItemDate, taskItemDescription, deleteClickFunc, taskItemLocation, dataIndex} = this.props;
     return (
-      <div className={`task-item ${isClosed ? 'closed' : ''}`}>
+      <div className='task-item'>
         <div className='task-item__wrapper'>
           <p className='task-item__date'>
             {taskItemDate}
@@ -38,7 +38,7 @@ class TaskItem extends Component {
           </p>
           <div className='task-item__btn-wrapp' data-index={dataIndex}>
             <Button btnText='edit' aditionalCls='task-item__edit-btn'/>
-            <Button btnText='delete' btnFunc={::this.handleDeleteClick} aditionalCls='task-item__delete-btn'/>
+            <Button btnText='delete' btnFunc={deleteClickFunc} aditionalCls='task-item__delete-btn'/>
           </div>
         </div>
       </div>
@@ -50,8 +50,10 @@ TaskItem.propTypes = {
   taskItemDate: PropTypes.string,
   taskItemDescription: PropTypes.string,
   taskItemLocation: PropTypes.string,
-  removeTaskFromList: PropTypes.string,
-  dataIndex: PropTypes.number
+  dataIndex: PropTypes.number,
+  toggleConfirmModal: PropTypes.func,
+  deleteClickFunc: PropTypes.func,
+  isConfirmModalOpened: PropTypes.bool
 };
 
 export default TaskItem;

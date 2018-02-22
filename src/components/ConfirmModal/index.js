@@ -16,10 +16,10 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class ConfirmModal extends Component {
   render() {
-    const {addCls, headingText, handleYes, handleNo} = this.props;
+    const {addCls, isClosed, headingText, handleYes, handleNo} = this.props;
     return (
       <div className={`confirm-modal ${addCls ? addCls : ''}`}>
-        <div className='confirm-modal__overlay'>
+        <div className={`confirm-modal__overlay ${isClosed ? 'active' : ''}`}>
           <div className='confirm-modal__inner-wrapper'>
             <h2 className='confirm-modal__heading'>{headingText}</h2>
             <div className='confirm-modal__btn-wrapper'>
@@ -45,7 +45,8 @@ ConfirmModal.propTypes = {
   addCls: PropTypes.string,
   headingText: PropTypes.string,
   handleYes: PropTypes.func,
-  handleNo: PropTypes.func
+  handleNo: PropTypes.func,
+  isClosed: PropTypes.bool
 };
 
 export default ConfirmModal;
