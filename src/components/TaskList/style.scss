@@ -19,9 +19,13 @@
   padding: 20px;
   list-style-type: none;
   transition: box-shadow .3s ease;
+  will-change: box-shadow;
   margin-top: 0;
   margin-bottom: 10px;
   animation: fadeIn .5s;
+  &.closed {
+    animation: fadeOut .5s;
+  }
 }
 
 .task-item__date {

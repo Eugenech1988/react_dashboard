@@ -19,9 +19,7 @@ class Dashboard extends React.Component {
     const {loading} = this.props;
     return (
       <div className='content-wrapper'>
-        {
-          !loading && <Loader/>
-        }
+        {!loading && <Loader/>}
         <Map/>
         {loading && <AddTask/>}
         {loading && <TaskPanel/>}

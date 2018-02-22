@@ -1,6 +1,7 @@
 import {
   HEADER_TOGGLE,
-  TOGGLE_PANEL_CONST
+  TOGGLE_PANEL_CONST,
+  TOGGLE_CONFIRM_MODAL
 } from 'constants/toggleConst';
 
 export const headerToggle = () => {
@@ -9,9 +10,14 @@ export const headerToggle = () => {
   };
 };
 
-export const togglePanel = (payload) => {
+export const togglePanel = () => {
   return {
-    type: TOGGLE_PANEL_CONST,
-    payload
+    type: TOGGLE_PANEL_CONST
+  };
+};
+
+export const toggleConfirmModal = () => {
+  return {
+    type: TOGGLE_CONFIRM_MODAL
   };
 };

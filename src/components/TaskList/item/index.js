@@ -18,14 +18,14 @@ class TaskItem extends Component {
   handleDeleteClick(e) {
     const index = e.target.parentElement.getAttribute('data-index');
     const {removeTaskFromList} = this.props;
-    console.log(index);
     e.preventDefault();
     removeTaskFromList(index);
   }
   render() {
     const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex} = this.props;
+    const {isClosed} = this.state;
     return (
-      <div className='task-item'>
+      <div className={`task-item ${isClosed ? 'closed' : ''}`}>
         <div className='task-item__wrapper'>
           <p className='task-item__date'>
             {taskItemDate}
