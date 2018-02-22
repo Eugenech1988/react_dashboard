@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 
 import Button from 'components/Button';
 import {toggleConfirmModal} from 'actions/toggleAction';
-import ConfirmModal from 'components/ConfirmModal';
+// import ConfirmModal from 'components/ConfirmModal';
 
 const mapStateToProps = state => ({
   isConfirmModalOpened: state.togglers.isConfirmModalOpened
 });
 
 const dispatchMapToProps = dispatch => ({
+  removeTaskFromList: (data) => dispatch(removeTaskFromList(data)),
   toggleConfirmModal: () => dispatch(toggleConfirmModal())
 });
 
@@ -18,9 +19,9 @@ const dispatchMapToProps = dispatch => ({
 class TaskItem extends Component {
   handleDeleteClick(e) {
     const index = e.target.parentElement.getAttribute('data-index');
-    const {toggleConfirmModal} = this.props;
+    const {removeTaskFromList} = this.props;
     e.preventDefault();
-    toggleConfirmModal();
+    removeTaskFromList(index);
   }
   render() {
     const {taskItemDate, taskItemDescription, deleteClickFunc, taskItemLocation, dataIndex} = this.props;
@@ -38,7 +39,7 @@ class TaskItem extends Component {
           </p>
           <div className='task-item__btn-wrapp' data-index={dataIndex}>
             <Button btnText='edit' aditionalCls='task-item__edit-btn'/>
-            <Button btnText='delete' btnFunc={deleteClickFunc} aditionalCls='task-item__delete-btn'/>
+            <Button btnText='delete' btnFunc={this.handleDeleteClick} aditionalCls='task-item__delete-btn'/>
           </div>
         </div>
       </div>
@@ -53,7 +54,8 @@ TaskItem.propTypes = {
   dataIndex: PropTypes.number,
   toggleConfirmModal: PropTypes.func,
   deleteClickFunc: PropTypes.func,
-  isConfirmModalOpened: PropTypes.bool
+  isConfirmModalOpened: PropTypes.bool,
+  removeTaskFromList: PropTypes.func
 };
 
 export default TaskItem;
