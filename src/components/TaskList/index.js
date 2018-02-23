@@ -21,23 +21,31 @@ const dispatchMapToProps = dispatch => ({
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskList extends Component {
+  state = {
+    isClosed: false
+  };
   componentWillMount() {
     const {setTaskList} = this.props;
     const currentTaskList = JSON.parse(localStorage.getItem('currentTaskList') || '[]');
     setTaskList(currentTaskList);
   }
-  handleModal(e) {
+  handleModalOpen(e) {
     const {toggleConfirmModal} = this.props;
     e.preventDefault();
     toggleConfirmModal();
   }
-  handleModal(e) {
+  handleModalClose(e) {
     const {toggleConfirmModal} = this.props;
     e.preventDefault();
-    toggleConfirmModal();
+    this.setState({isClosed: true});
+    setTimeout(() => {
+      toggleConfirmModal();
+      this.setState({isClosed: false});
+    }, 500);
   }
-    render() {
+  render() {
     const {taskListItems, isConfirmModalOpened} = this.props;
+    const {isClosed} = this.state;
     return (
       <div className='task-list'>
         <ul className='task-list__list'>
@@ -60,6 +68,7 @@ class TaskList extends Component {
         {
           isConfirmModalOpened &&
             <ConfirmModal
+              addCls={isClosed ? 'active' : ''}
               handleNo={::this.handleModalClose}
               headingText='Are you sure that you want to delete this task?'
             />
