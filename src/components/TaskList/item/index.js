@@ -23,9 +23,9 @@ class TaskItem extends Component {
     removeTaskFromList(index);
   }
   render() {
-    const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex} = this.props;
+    const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex, deleteFunc} = this.props;
     return (
-      <div className='task-item'>
+      <li className='task-item'>
         <div className='task-item__wrapper'>
           <p className='task-item__date'>
             {taskItemDate}
@@ -38,10 +38,10 @@ class TaskItem extends Component {
           </p>
           <div className='task-item__btn-wrapp' data-index={dataIndex}>
             <Button btnText='edit' aditionalCls='task-item__edit-btn'/>
-            <Button btnText='delete' btnFunc={::this.handleDeleteClick} aditionalCls='task-item__delete-btn'/>
+            <Button btnText='delete' btnFunc={deleteFunc} aditionalCls='task-item__delete-btn'/>
           </div>
         </div>
-      </div>
+      </li>
     );
   };
 }
@@ -51,7 +51,8 @@ TaskItem.propTypes = {
   taskItemDescription: PropTypes.string,
   taskItemLocation: PropTypes.string,
   removeTaskFromList: PropTypes.string,
-  dataIndex: PropTypes.number
+  dataIndex: PropTypes.number,
+  deleteFunc: PropTypes.func
 };
 
 export default TaskItem;
