@@ -15,13 +15,6 @@ const dispatchMapToProps = dispatch => ({
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskItem extends Component {
-  handleDeleteClick(e) {
-    const index = e.target.parentElement.getAttribute('data-index');
-    const {removeTaskFromList} = this.props;
-    console.log(index);
-    e.preventDefault();
-    removeTaskFromList(index);
-  }
   render() {
     const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex, deleteFunc} = this.props;
     return (

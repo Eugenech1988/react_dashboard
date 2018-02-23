@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import TaskItem from './item';
 //import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import './style.scss';
-import {setTaskList} from 'actions/taskListActions';
+import {setTaskList, removeTaskFromList} from 'actions/taskListActions';
 import {toggleConfirmModal} from 'actions/toggleAction';
 import ConfirmModal from 'components/ConfirmModal';
 
@@ -16,13 +16,15 @@ const mapStateToProps = state => ({
 
 const dispatchMapToProps = dispatch => ({
   setTaskList: (data) => dispatch(setTaskList(data)),
-  toggleConfirmModal: () => dispatch(toggleConfirmModal())
+  toggleConfirmModal: () => dispatch(toggleConfirmModal()),
+  removeTaskFromList: (data) => dispatch(removeTaskFromList(data))
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskList extends Component {
   state = {
-    isClosed: false
+    isClosed: false,
+    itemId: null
   };
   componentWillMount() {
     const {setTaskList} = this.props;
@@ -31,6 +33,9 @@ class TaskList extends Component {
   }
   handleModalOpen(e) {
     const {toggleConfirmModal} = this.props;
+    const indexItemId = e.target.parentElement.getAttribute('data-index');
+    this.setState({itemId: indexItemId});
+    console.log(indexItemId);
     e.preventDefault();
     toggleConfirmModal();
   }
@@ -42,6 +47,13 @@ class TaskList extends Component {
       toggleConfirmModal();
       this.setState({isClosed: false});
     }, 500);
+  }
+  handleDelete(e) {
+    const {removeTaskFromList} = this.props;
+    this.handleModalClose(e);
+    const {itemId} = this.state;
+    e.preventDefault();
+    removeTaskFromList(itemId);
   }
   render() {
     const {taskListItems, isConfirmModalOpened} = this.props;
@@ -70,6 +82,7 @@ class TaskList extends Component {
             <ConfirmModal
               addCls={isClosed ? 'active' : ''}
               handleNo={::this.handleModalClose}
+              handleYes={::this.handleDelete}
               headingText='Are you sure that you want to delete this task?'
             />
         }
@@ -82,7 +95,8 @@ TaskList.propTypes = {
   taskListItems: PropTypes.array,
   isConfirmModalOpened: PropTypes.bool,
   setTaskList: PropTypes.func,
-  toggleConfirmModal: PropTypes.func
+  toggleConfirmModal: PropTypes.func,
+  removeTaskFromList: PropTypes.func
 };
 
 export default TaskList;

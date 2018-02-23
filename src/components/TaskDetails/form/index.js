@@ -12,10 +12,6 @@ const mapStateToProps = state => ({
   taskDescription: state.taskPanel.taskDescription,
 });
 
-const dispatchMapToProps = dispatch => ({
-  change: (field, value) => dispatch(change(field, value))
-});
-
 @connect(mapStateToProps)
 class TaskDetailsForm extends Component {
   
@@ -61,6 +57,14 @@ class TaskDetailsForm extends Component {
     );
   }
 }
+
+TaskDetailsForm.propTypes = {
+  taskAddress: PropTypes.string,
+  serviceItemText: PropTypes.string,
+  availableTask: PropTypes.string,
+  taskDescription: PropTypes.string,
+  change: PropTypes.func
+};
 
 TaskDetailsForm = reduxForm({
   form: 'taskDetails',
