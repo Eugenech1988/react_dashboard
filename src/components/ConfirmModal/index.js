@@ -14,7 +14,7 @@ const dispatchMapToProps = dispatch => ({
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
-class ConfirmModal extends Component {
+class EditModal extends Component {
   render() {
     const {addCls, isClosed, headingText, handleYes, handleNo, dataIndex} = this.props;
     return (
@@ -42,7 +42,7 @@ class ConfirmModal extends Component {
   };
 }
 
-ConfirmModal.propTypes = {
+EditModal.propTypes = {
   addCls: PropTypes.string,
   headingText: PropTypes.string,
   handleYes: PropTypes.func,
@@ -51,4 +51,4 @@ ConfirmModal.propTypes = {
   dataIndex: PropTypes.number
 };
 
-export default ConfirmModal;
+export default EditModal;

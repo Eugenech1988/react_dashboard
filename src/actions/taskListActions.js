@@ -3,6 +3,7 @@ import {
   REMOVE_TASK_FROM_LIST,
   SET_TASK_LIST
 } from 'constants/taskListConst';
+import {SET_EDIT_DETAILS} from "../constants/taskListConst";
 
 export const addTaskToList = (payload) => {
   return {
@@ -21,6 +22,13 @@ export const removeTaskFromList = payload => {
 export const setTaskList = payload => {
   return {
     type: SET_TASK_LIST,
+    payload
+  };
+};
+
+export const setEditDetails = payload => {
+  return {
+    type: SET_EDIT_DETAILS,
     payload
   };
 };

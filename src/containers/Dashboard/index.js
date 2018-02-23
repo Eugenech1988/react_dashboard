@@ -6,7 +6,7 @@ import Map from 'components/Map';
 import './style.scss';
 import Loader from 'components/Loader';
 import AddTask from 'components/AddTask';
-import TaskPanel from 'containers/TaskPanel';
+import TaskPanel from 'components/TaskPanel';
 import TaskList from 'components/TaskList';
 
 const mapStateToProps = state => ({

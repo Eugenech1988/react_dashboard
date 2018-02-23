@@ -10,7 +10,8 @@ import AvailableTask from 'components/AvailableTask';
 import TaskDescription from 'components/TaskDescription';
 
 const mapStateToProps = state => ({
-  isPanelOpened: state.togglers.isPanelOpened
+  isPanelOpened: state.togglers.isPanelOpened,
+  
 });
 
 const dispatchMapToProps = dispatch => ({});

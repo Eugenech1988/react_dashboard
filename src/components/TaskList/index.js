@@ -3,10 +3,9 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import TaskItem from './item';
-//import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import './style.scss';
 import {setTaskList, removeTaskFromList} from 'actions/taskListActions';
-import {toggleConfirmModal} from 'actions/toggleAction';
+import {toggleConfirmModal, editTaskToggle} from 'actions/toggleAction';
 import ConfirmModal from 'components/ConfirmModal';
 
 const mapStateToProps = state => ({
@@ -17,7 +16,8 @@ const mapStateToProps = state => ({
 const dispatchMapToProps = dispatch => ({
   setTaskList: (data) => dispatch(setTaskList(data)),
   toggleConfirmModal: () => dispatch(toggleConfirmModal()),
-  removeTaskFromList: (data) => dispatch(removeTaskFromList(data))
+  removeTaskFromList: (data) => dispatch(removeTaskFromList(data)),
+  editTaskToggle: (data) => dispatch(editTaskToggle(data))
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
@@ -55,6 +55,11 @@ class TaskList extends Component {
     e.preventDefault();
     removeTaskFromList(itemId);
   }
+  handleEditToggle(e) {
+    e.preventDefault();
+    const {editTaskToggle} = this.props;
+    editTaskToggle(true)
+  }
   render() {
     const {taskListItems, isConfirmModalOpened} = this.props;
     const {isClosed} = this.state;
@@ -68,6 +73,7 @@ class TaskList extends Component {
                 <TaskItem
                   key={index}
                   deleteFunc={::this.handleModalOpen}
+                  editFunc={::this.handleEditToggle}
                   taskItemDate={item.date}
                   taskItemDescription={item.details}
                   taskItemLocation={item.address}
@@ -96,7 +102,8 @@ TaskList.propTypes = {
   isConfirmModalOpened: PropTypes.bool,
   setTaskList: PropTypes.func,
   toggleConfirmModal: PropTypes.func,
-  removeTaskFromList: PropTypes.func
+  removeTaskFromList: PropTypes.func,
+  editTaskToggle: PropTypes.func
 };
 
 export default TaskList;

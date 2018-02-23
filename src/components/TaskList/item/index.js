@@ -16,7 +16,7 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskItem extends Component {
   render() {
-    const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex, deleteFunc} = this.props;
+    const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex, deleteFunc, editFunc} = this.props;
     return (
       <li className='task-item'>
         <div className='task-item__wrapper'>
@@ -30,7 +30,7 @@ class TaskItem extends Component {
             {taskItemLocation}
           </p>
           <div className='task-item__btn-wrapp' data-index={dataIndex}>
-            <Button btnText='edit' aditionalCls='task-item__edit-btn'/>
+            <Button btnText='edit' btnFunc={editFunc} aditionalCls='task-item__edit-btn'/>
             <Button btnText='delete' btnFunc={deleteFunc} aditionalCls='task-item__delete-btn'/>
           </div>
         </div>

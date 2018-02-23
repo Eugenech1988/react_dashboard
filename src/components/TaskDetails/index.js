@@ -20,7 +20,7 @@ const mapStateToProps = state => ({
 const dispatchMapToProps = dispatch => ({
   addTaskToList: (data) => dispatch(addTaskToList(data)),
   addItemToHistory: (data) => dispatch(addItemToHistory(data)),
-  setHistory: (data) => dispatch(setHistory(data))
+  setHistory: (data) => dispatch(setHistory(data)),
 });
 
 @connect(mapStateToProps, dispatchMapToProps)

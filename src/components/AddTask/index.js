@@ -16,20 +16,16 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class AddTask extends Component {
   handleClick(e) {
-    const target = e.target;
-    const {togglePanel, isPanelOpened} = this.props;
+    const {togglePanel} = this.props;
     togglePanel();
-    if (!isPanelOpened)
-      target.innerText = 'close panel';
-    else
-      target.innerText = '+ new task';
   }
   
   render() {
+    const {isPanelOpened} = this.props;
     return (
       <div className='add-task__btn-wrap'>
         <button type='button' className='add-task__btn' onClick={::this.handleClick}>
-          + new task
+          {`${isPanelOpened ? 'close task panel' : '+ new task'}`}
         </button>
       </div>
     );
