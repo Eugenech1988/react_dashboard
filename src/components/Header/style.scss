@@ -5,7 +5,7 @@
   min-height: 80px;
   width: 100%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .14);
-  z-index: 100;
+  z-index: 10000;
 }
 
 .main-header__inner {
@@ -17,6 +17,7 @@
 
 .logo__wrapper {
   margin-right: 80px;
+  z-index: 1;
 }
 
 .logo__link {

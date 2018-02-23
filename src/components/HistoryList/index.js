@@ -10,17 +10,8 @@ const mapStateToProps = state => ({
   history: state.history
 });
 
-const dispatchMapToProps = dispatch => ({
-  setHistory: (data) => dispatch(setHistory(data))
-});
-
-@connect(mapStateToProps, dispatchMapToProps)
+@connect(mapStateToProps)
 class HistoryList extends Component {
-  componentDidMount() {
-    const {setHistory} = this.props;
-    const historyList = JSON.parse(localStorage.getItem('listHistory') || '[]');
-    setHistory(historyList);
-  }
   render() {
     const {history} = this.props;
     return (
@@ -44,8 +35,7 @@ class HistoryList extends Component {
 }
 
 HistoryList.propTypes = {
-  history: PropTypes.array,
-  setHistory: PropTypes.func
+  history: PropTypes.array
 };
 
 export default HistoryList;

@@ -1,6 +1,8 @@
 .history-list {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 0;
+  margin: 0;
 }
 
 .history-item {
@@ -72,9 +74,14 @@
 
 
 @media (max-width: 767px) {
+  .history-list {
+    margin: 0;
+  }
   .history-item {
     padding: 15px;
     max-width: initial;
+    margin-right: 0;
+    width: 100%;
   }
   .history-item__date {
     margin-bottom: 5px;
