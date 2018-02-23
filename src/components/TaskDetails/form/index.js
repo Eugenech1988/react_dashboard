@@ -63,7 +63,8 @@ TaskDetailsForm.propTypes = {
   serviceItemText: PropTypes.string,
   availableTask: PropTypes.string,
   taskDescription: PropTypes.string,
-  change: PropTypes.func
+  change: PropTypes.func,
+  handleSubmit: PropTypes.func
 };
 
 TaskDetailsForm = reduxForm({

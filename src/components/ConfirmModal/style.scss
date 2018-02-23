@@ -76,3 +76,10 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .confirm-modal__heading {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

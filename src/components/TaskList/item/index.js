@@ -16,7 +16,7 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class TaskItem extends Component {
   render() {
-    const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex, deleteFunc, editFunc} = this.props;
+    const {taskItemDate, taskItemDescription, taskItemLocation, dataIndex, deleteFunc, dataId, editFunc} = this.props;
     return (
       <li className='task-item'>
         <div className='task-item__wrapper'>
@@ -29,7 +29,7 @@ class TaskItem extends Component {
           <p className='task-item__location'>
             {taskItemLocation}
           </p>
-          <div className='task-item__btn-wrapp' data-index={dataIndex}>
+          <div className='task-item__btn-wrapp' data-id={dataId} data-index={dataIndex}>
             <Button btnText='edit' btnFunc={editFunc} aditionalCls='task-item__edit-btn'/>
             <Button btnText='delete' btnFunc={deleteFunc} aditionalCls='task-item__delete-btn'/>
           </div>
@@ -45,7 +45,9 @@ TaskItem.propTypes = {
   taskItemLocation: PropTypes.string,
   removeTaskFromList: PropTypes.string,
   dataIndex: PropTypes.number,
-  deleteFunc: PropTypes.func
+  dataId: PropTypes.number,
+  deleteFunc: PropTypes.func,
+  editFunc: PropTypes.func
 };
 
 export default TaskItem;

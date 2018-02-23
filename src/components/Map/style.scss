@@ -1,8 +1,6 @@
 .map {
   animation: fade .7s;
-  &.hidden {
-    display: none;
-  }
+  transition: opacity .5s ease;
 }
 
 #map {
@@ -17,6 +15,11 @@
 }
 
 @media (max-width: 767px) {
+  .map {
+    &.hidden {
+      opacity: 0;
+    }
+  }
   #map {
     height: calc(100vh - 35px);
   }

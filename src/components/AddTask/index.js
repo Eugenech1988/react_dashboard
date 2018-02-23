@@ -16,10 +16,10 @@ const dispatchMapToProps = dispatch => ({
 @connect(mapStateToProps, dispatchMapToProps)
 class AddTask extends Component {
   handleClick(e) {
+    e.preventDefault();
     const {togglePanel} = this.props;
     togglePanel();
   }
-  
   render() {
     const {isPanelOpened} = this.props;
     return (

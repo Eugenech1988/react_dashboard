@@ -4,20 +4,22 @@ import PropTypes from 'prop-types';
 
 import TaskItem from './item';
 import './style.scss';
-import {setTaskList, removeTaskFromList} from 'actions/taskListActions';
+import {setTaskList, removeTaskFromList, setEditDetails} from 'actions/taskListActions';
 import {toggleConfirmModal, editTaskToggle} from 'actions/toggleAction';
 import ConfirmModal from 'components/ConfirmModal';
 
 const mapStateToProps = state => ({
   taskListItems: state.taskListItems,
-  isConfirmModalOpened: state.togglers.isConfirmModalOpened
+  isConfirmModalOpened: state.togglers.isConfirmModalOpened,
+  
 });
 
 const dispatchMapToProps = dispatch => ({
   setTaskList: (data) => dispatch(setTaskList(data)),
   toggleConfirmModal: () => dispatch(toggleConfirmModal()),
   removeTaskFromList: (data) => dispatch(removeTaskFromList(data)),
-  editTaskToggle: (data) => dispatch(editTaskToggle(data))
+  editTaskToggle: (data) => dispatch(editTaskToggle(data)),
+  setEditDetails: (data) => dispatch(setEditDetails(data))
 });
 
 @connect(mapStateToProps, dispatchMapToProps)
@@ -33,7 +35,7 @@ class TaskList extends Component {
   }
   handleModalOpen(e) {
     const {toggleConfirmModal} = this.props;
-    const indexItemId = e.target.parentElement.getAttribute('data-index');
+    const indexItemId = e.target.parentElement.getAttribute('data-id');
     this.setState({itemId: indexItemId});
     console.log(indexItemId);
     e.preventDefault();
@@ -57,8 +59,11 @@ class TaskList extends Component {
   }
   handleEditToggle(e) {
     e.preventDefault();
-    const {editTaskToggle} = this.props;
-    editTaskToggle(true)
+    const {editTaskToggle, setEditDetails, taskListItems} = this.props;
+    const indexItemId = e.target.parentElement.getAttribute('data-index');
+    const indexTaskDetail = taskListItems[indexItemId];
+    setEditDetails(indexTaskDetail);
+    editTaskToggle(true);
   }
   render() {
     const {taskListItems, isConfirmModalOpened} = this.props;
@@ -77,7 +82,8 @@ class TaskList extends Component {
                   taskItemDate={item.date}
                   taskItemDescription={item.details}
                   taskItemLocation={item.address}
-                  dataIndex={item.id}
+                  dataIndex={index}
+                  dataId={item.id}
                 />
               );
             })
@@ -103,7 +109,8 @@ TaskList.propTypes = {
   setTaskList: PropTypes.func,
   toggleConfirmModal: PropTypes.func,
   removeTaskFromList: PropTypes.func,
-  editTaskToggle: PropTypes.func
+  editTaskToggle: PropTypes.func,
+  setEditDetails: PropTypes.func
 };
 
 export default TaskList;

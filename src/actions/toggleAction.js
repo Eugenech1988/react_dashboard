@@ -2,7 +2,8 @@ import {
   HEADER_TOGGLE,
   PANEL_TOGGLE,
   CONFIRM_MODAL_TOGGLE,
-  EDIT_TOGGLE
+  EDIT_TOGGLE,
+  MAP_TOGGLE
 } from 'constants/toggleConst';
 
 export const headerToggle = () => {
@@ -27,5 +28,11 @@ export const editTaskToggle = (payload) => {
   return {
     type: EDIT_TOGGLE,
     payload
+  };
+};
+
+export const mapToggle = () => {
+  return {
+    type: MAP_TOGGLE
   };
 };

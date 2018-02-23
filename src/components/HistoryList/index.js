@@ -7,15 +7,16 @@ import {setHistory} from 'actions/historyAction';
 import './style.scss';
 
 const mapStateToProps = state => ({
-  history: state.history
+  history: state.history,
+  isMapOpened: state.togglers.isMapOpened
 });
 
 @connect(mapStateToProps)
 class HistoryList extends Component {
   render() {
-    const {history} = this.props;
+    const {history, isMapOpened} = this.props;
     return (
-      <ul className='history-list'>
+      <ul className={`history-list ${isMapOpened ? 'hidden' : ''}`}>
         {
           history &&
           history.map((item, index) => {
@@ -35,7 +36,8 @@ class HistoryList extends Component {
 }
 
 HistoryList.propTypes = {
-  history: PropTypes.array
+  history: PropTypes.array,
+  isMapOpened: PropTypes.bool
 };
 
 export default HistoryList;

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import Logo from 'components/Logo';
 import Nav from 'components/Nav';
+import MapToggle from 'components/MapToggle';
 import './style.scss';
 import {headerToggle} from 'actions/toggleAction';
 
@@ -35,6 +36,7 @@ class Header extends Component {
               />
               <Logo/>
               <Nav/>
+              <MapToggle/>
             </div>
           </div>
         </div>

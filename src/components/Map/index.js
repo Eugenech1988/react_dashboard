@@ -8,7 +8,6 @@ import {setTaskAddress} from 'actions/taskDetailsAction';
 import './style.scss';
 
 const mapStateToProps = state => ({
-  loading: state.loading,
   userDetails: state.userDetails
 });
 
@@ -48,13 +47,12 @@ class Map extends Component {
       window.google.maps.event.addDomListener(window, 'resize', () => {
         map.setCenter(center);
       });
-      window.google.maps.event.addListener(map, 'click', function (event) {
+      window.google.maps.event.addListener(map, 'click', (event) => {
         const customLat = event.latLng.lat();
         const customLng = event.latLng.lng();
         setCustomCoords(customLat, customLng);
         center = {lat: customLat, lng: customLng};
         map.setCenter(center);
-        
       });
       geocoder.geocode({location: center}, (results, status) => {
         if (status === 'OK') {
@@ -67,9 +65,9 @@ class Map extends Component {
   }
   
   render() {
-    const {userDetails, loading} = this.props;
+    const {userDetails} = this.props;
     return (
-      <div className={`map ${!loading ? 'hidden' : ''}`}>
+      <div className='map'>
         <div className='map__wrapper'>
           {userDetails &&
           <div id='map'/>
@@ -85,7 +83,7 @@ Map.propTypes = {
   setCustomCoords: PropTypes.func,
   setTaskAddress: PropTypes.func,
   userDetails: PropTypes.object,
-  loading: PropTypes.bool
+  isMapOpened: PropTypes.bool
 };
 
 export default Map;
