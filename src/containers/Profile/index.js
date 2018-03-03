@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import LoginForm from 'components/LoginForm';
+import './style.scss';
 
 const mapStateToProps = (state) => ({
 });
