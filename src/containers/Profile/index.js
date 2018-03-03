@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import FacebookLogin from 'components/FacebookLogin';
+import LoginForm from 'components/LoginForm';
 
 const mapStateToProps = (state) => ({
 });
@@ -15,9 +15,7 @@ class Profile extends Component {
   render() {
     return (
       <div className='profile'>
-        <div className='profile__login-form'>
-          <FacebookLogin/>
-        </div>
+          <LoginForm/>
       </div>
     );
   }

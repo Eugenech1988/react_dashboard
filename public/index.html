@@ -33,6 +33,8 @@
 
       FB.AppEvents.logPageView();
 
+      var fbInitEvent = new Event('FBObjectReady');
+      document.dispatchEvent(fbInitEvent);
     };
 
     (function(d, s, id){
