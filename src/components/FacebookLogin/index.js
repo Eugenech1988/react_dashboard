@@ -62,7 +62,7 @@ class FacebookLogin extends Component {
   render() {
     const {children} = this.props;
     return (
-      <div onClick={this.facebookLogin}>
+      <div className='login-form__facebook-login-wrap' onClick={this.facebookLogin}>
         {children}
       </div>
     );
