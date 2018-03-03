@@ -1,0 +1,1 @@
+export const CHECK_FB_STATUS = 'CHECK_FB_STATUS';

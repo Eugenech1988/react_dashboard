@@ -5,6 +5,7 @@ import {userDetails} from './userReducer';
 import {taskListItems, editTaskDetails} from './taskListReducer';
 import {togglers} from './toggleReducer';
 import {history} from './historyReducer';
+import {login} from './loginReducer';
 import {reducer as formReducer} from 'redux-form';
 
 export default combineReducers({
@@ -15,5 +16,6 @@ export default combineReducers({
   togglers,
   history,
   editTaskDetails,
+  login,
   form: formReducer
 });
