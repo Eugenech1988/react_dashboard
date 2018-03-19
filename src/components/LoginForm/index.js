@@ -4,18 +4,19 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 import FacebookLogin from 'components/FacebookLogin';
-import GoogleLogin from 'components/GoogleLogin';
 import Button from 'components/Button';
 import FBIcon from 'assets/icons/facebook.svg';
 import GIcon from 'assets/icons/google.svg';
-import {setFBStatus} from "actions/loginAction";
+import {setFBStatus, setGoogleDetails, setGoogleStatus} from 'actions/loginAction';
 
 const mapStateToProps = (state) => ({
   isFBLoggedIn: state.login.isFBLoggedIn
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFBStatus: (data) => dispatch(setFBStatus(data))
+  setFBStatus: (data) => dispatch(setFBStatus(data)),
+  setGoogleDetails: (data) => dispatch(setGoogleDetails(data)),
+  setGoogleStatus: (data) => dispatch(setGoogleStatus(data))
 });
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -39,13 +40,16 @@ class LoginForm extends Component {
   }
 
   googleLoginInit = () => {
+    const {setGoogleStatus, setGoogleDetails} = this.props;
     const googleUser = {};
     const attachSignin = (element) => {
       console.log(element.id);
       window.auth2.attachClickHandler(element, {},
         (googleUser) => {
-          document.getElementById('name').innerText = "Signed in: " +
-            googleUser.getBasicProfile().getName();
+          const userName = googleUser.getBasicProfile().getName();
+          document.getElementById('name').innerText = 'Signed in: ' + userName;
+          setGoogleDetails(userName);
+          setGoogleStatus(true);
         }, (error) => {
           console.log(JSON.stringify(error, undefined, 2));
         });
@@ -94,7 +98,7 @@ class LoginForm extends Component {
         </div>
         }
         {!FBUsername && !GUsername &&
-        <GoogleLogin>
+        <div className='login-form__google-login-wrap'>
           <Button
             google='onSignIn'
             additionalID='google-btn'
@@ -102,8 +106,9 @@ class LoginForm extends Component {
             aditionalCls='google-btn'
             btnText='connect to google'
           />
-        </GoogleLogin>
+        </div>
         }
+        <div id='name'></div>
         {FBUsername &&
         <p className='login-form__user-notify'>
           Welcome back
@@ -117,7 +122,9 @@ class LoginForm extends Component {
 
 LoginForm.propTypes = {
   isFBLoggedIn: PropTypes.bool,
-  setFBStatus: PropTypes.func
+  setFBStatus: PropTypes.bool,
+  setGoogleStatus: PropTypes.bool,
+  setGoogleDetails: PropTypes.object
 };
 
 export default LoginForm;
