@@ -21,21 +21,72 @@
   width: 100%;
   max-width: 300px;
   background-color: #4c71fe;
+  //text-align: left;
   color: white;
   font-weight: 100;
+  margin-bottom: 15px;
+  padding-left: 50px;
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
   &:hover {
     background-color: lighten(#4c71fe, 5%);
   }
   &:active {
     background-color: darken(#4c71fe, 10%);
   }
+  &:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: white;
+    top: 0;
+    left: 40px;
+  }
   .btn__img {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
     max-width: 20px;
     width: 100%;
     height: auto;
     display: inline-block;
     vertical-align: middle;
-    margin-top: -4px;
-    margin-right: 5px;
+  }
+}
+
+.google-btn {
+  @extend .facebook-btn;
+  background: #FA4C6F;
+  margin-bottom: 0;
+  &:hover {
+    background-color: lighten(#FA4C6F, 5%);
+  }
+  &:active {
+    background-color: darken(#FA4C6F, 10%);
+  }
+}
+
+.login-form__separator-wrap {
+  margin-bottom: 15px;
+}
+
+.login-form__separator {
+  position: relative;
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    height: 1px;
+    width: 25px;
+    background: #1a1b1f;
+  }
+  &:after {
+    left: initial;
+    right: -30px;
   }
 }
