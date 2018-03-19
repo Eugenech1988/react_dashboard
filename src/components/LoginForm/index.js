@@ -52,7 +52,7 @@ class LoginForm extends Component {
     };
     window.gapi.load('auth2', () => {
       window.auth2 = window.gapi.auth2.init({
-        client_id: '724509125947-0v71l2ctm57ut5972ksb16nnlp3squa4.apps.googleusercontent.com',
+        client_id: '724509125947-kl3722uin6pq7ghsi17lt2v6ng3datmr.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
       });
       attachSignin(document.getElementById('google-btn'));
