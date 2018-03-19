@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 
 import LoginForm from 'components/LoginForm';
 import './style.scss';
@@ -21,9 +20,5 @@ class Profile extends Component {
     );
   }
 }
-
-Profile.propTypes = {
-
-};
 
 export default Profile;

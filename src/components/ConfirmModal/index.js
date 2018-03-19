@@ -5,13 +5,9 @@ import PropTypes from 'prop-types';
 import Button from 'components/Button';
 import './style.scss';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => ({});
 
-});
-
-const dispatchMapToProps = dispatch => ({
-
-});
+const dispatchMapToProps = dispatch => ({});
 
 @connect(mapStateToProps, dispatchMapToProps)
 class EditModal extends Component {

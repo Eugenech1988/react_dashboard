@@ -11,9 +11,9 @@ const dispatchMapToProps = dispatch => ({});
 @connect(mapStateToProps, dispatchMapToProps)
 class Button extends Component {
   render() {
-    const {aditionalCls, btnText, btnFunc, isDisabled, btnImgSrc} = this.props;
+    const {aditionalCls, btnText, btnFunc, isDisabled, btnImgSrc, google, additionalID} = this.props;
     return (
-      <button className={`btn ${aditionalCls ? aditionalCls : ''} ${isDisabled ? 'disabled' : ''}`} onClick={btnFunc}>
+      <button id={additionalID} data-onsuccess={google} className={`btn ${aditionalCls ? aditionalCls : ''} ${isDisabled ? 'disabled' : ''}`} onClick={btnFunc}>
         {
           btnImgSrc &&
           <img src={btnImgSrc} alt='' className='btn__img'/>           
@@ -29,7 +29,9 @@ Button.propTypes = {
   aditionalCls: PropTypes.string,
   isDisabled: PropTypes.bool,
   btnFunc: PropTypes.func,
-  btnImgSrc: PropTypes.func
+  btnImgSrc: PropTypes.func,
+  google: PropTypes.string,
+  additionalID: PropTypes.string
 };
 
 export default Button;
