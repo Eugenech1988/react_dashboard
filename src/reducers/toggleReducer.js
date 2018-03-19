@@ -11,7 +11,7 @@ const initialState = {
   isPanelOpened: false,
   isConfirmModalOpened: false,
   isEditOpened: false,
-  isMapOpened: true
+  isMapOpened: false
 };
 
 export const togglers = (state = initialState, action) => {

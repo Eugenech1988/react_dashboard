@@ -19,7 +19,9 @@
     width: 29px;
     height: 29px;
     vertical-align: middle;
-    .btn-img {
+    .btn__img {
+      //opacity: 0;
+      animation: fade .5s;
     }
   }
 }

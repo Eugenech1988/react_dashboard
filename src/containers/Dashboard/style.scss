@@ -7,7 +7,15 @@
   max-width: 330px;
   animation: fade 1s;
 }
-.content-wrapper {
+.dashboard-wrapper {
   position: relative;
   overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  .dashboard-wrapper {
+    background-image: url('../../assets/images/profile-background.jpg');
+    background-size: cover;
+    background-repeat: none;
+  }
 }
