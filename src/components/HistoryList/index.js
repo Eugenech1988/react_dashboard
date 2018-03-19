@@ -11,8 +11,17 @@ const mapStateToProps = state => ({
   isMapOpened: state.togglers.isMapOpened
 });
 
-@connect(mapStateToProps)
+const mapDispatchToProps = dispatch => ({
+  setHistory: (data) => dispatch(setHistory(data))
+});
+
+@connect(mapStateToProps, mapDispatchToProps)
 class HistoryList extends Component {
+  componentWillMount() {
+    const {setHistory} = this.props;
+    const historyList = JSON.parse(localStorage.getItem('listHistory') || '[]');
+    setHistory(historyList);
+  }
   render() {
     const {history, isMapOpened} = this.props;
     return (
@@ -37,6 +46,7 @@ class HistoryList extends Component {
 
 HistoryList.propTypes = {
   history: PropTypes.array,
+  setHistory: PropTypes.func,
   isMapOpened: PropTypes.bool
 };
 

@@ -8,30 +8,37 @@ import GoogleLogin from 'components/GoogleLogin';
 import Button from 'components/Button';
 import FBIcon from 'assets/icons/facebook.svg';
 import GIcon from 'assets/icons/google.svg';
+import {setFBStatus} from "actions/loginAction";
 
 const mapStateToProps = (state) => ({
+  isFBLoggedIn: state.login.isFBLoggedIn
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  setFBStatus: (data) => dispatch(setFBStatus(data))
 });
 
 @connect(mapStateToProps, mapDispatchToProps)
-
-
 class LoginForm extends Component {
   state = {
     FBUsername: null,
     GUsername: null,
   };
 
+  componentWillMount() {
+    const FBLoginStatus = JSON.parse(localStorage.getItem(''))
+  }
+
   onFacebookLogin = (loginStatus, resultObject) => {
-    console.log(resultObject);
+    const {setFBStatus} = this.props;
     if (loginStatus === true) {
+      setFBStatus(true);
       this.setState({
         FBUsername: resultObject.user.name
       });
     } else {
-      alert('Facebook login error');
+      console.log('Facebook login error');
+      // alert('Facebook login error');
     }
   };
 
@@ -78,7 +85,8 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-
+  isFBLoggedIn: PropTypes.bool,
+  setFBStatus: PropTypes.func
 };
 
 export default LoginForm;

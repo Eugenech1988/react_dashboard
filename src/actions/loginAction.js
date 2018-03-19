@@ -1,10 +1,10 @@
 import {
-  CHECK_FB_STATUS
+  SET_FB_STATUS
 } from 'constants/loginConst';
 
-export const checkFBStatus = (payload) => {
+export const setFBStatus = (payload) => {
   return {
-    type: CHECK_FB_STATUS,
+    type: SET_FB_STATUS,
     payload
   };
 };

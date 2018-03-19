@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {checkFBStatus} from 'actions/loginAction';
+import {setFBStatus} from 'actions/loginAction';
 
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  checkFBStatus: (data) => dispatch(checkFBStatus(data))
+  setFBStatus: (data) => dispatch(setFBStatus(data))
 });
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -70,7 +70,7 @@ class FacebookLogin extends Component {
 }
 
 FacebookLogin.propTypes = {
-  checkFBStatus: PropTypes.func
+  setFBStatus: PropTypes.func
 };
 
 export default FacebookLogin;
