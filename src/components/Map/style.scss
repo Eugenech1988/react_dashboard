@@ -15,13 +15,13 @@
 }
 
 @media (max-width: 767px) {
-  .map {
+  #map {
+    height: calc(100vh - 35px);
+    transition: opacity .3s ease;
+    z-index: 1;
     &.hidden {
       opacity: 0;
     }
-  }
-  #map {
-    height: calc(100vh - 35px);
   }
 }
 

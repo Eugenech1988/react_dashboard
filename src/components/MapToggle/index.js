@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import {mapToggle} from 'actions/toggleAction';
 import mapIcon from 'assets/icons/mapIcon.svg';
+import closeIcon from 'assets/icons/close.svg';
 import Button from 'components/Button';
 import './style.scss';
 
@@ -22,10 +23,11 @@ class MapToggle extends Component {
     mapToggle();
   }
   render() {
+    const {isMapOpened} = this.props;
     return (
       <Button
         aditionalCls='map-toggle'
-        btnImgSrc={mapIcon}
+        btnImgSrc={!isMapOpened ? mapIcon : closeIcon}
         btnFunc={::this.handleClick}
       />
     );
@@ -34,7 +36,7 @@ class MapToggle extends Component {
 
 MapToggle.propTypes = {
   mapToggle: PropTypes.func,
-  isMapOpened: PropTypes.func
+  isMapOpened: PropTypes.bool
 };
 
 export default MapToggle;

@@ -8,7 +8,8 @@ import {setTaskAddress} from 'actions/taskDetailsAction';
 import './style.scss';
 
 const mapStateToProps = state => ({
-  userDetails: state.userDetails
+  userDetails: state.userDetails,
+  isMapOpened: state.togglers.isMapOpened
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -65,12 +66,12 @@ class Map extends Component {
   }
   
   render() {
-    const {userDetails} = this.props;
+    const {userDetails, isMapOpened} = this.props;
     return (
       <div className='map'>
         <div className='map__wrapper'>
           {userDetails &&
-          <div id='map'/>
+          <div id='map' className={!isMapOpened ? 'hidden' : ''}/>
           }
         </div>
       </div>
