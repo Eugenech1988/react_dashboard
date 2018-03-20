@@ -25,7 +25,6 @@ class GoogleLogin extends Component {
     const {setGoogleDetails} = this.props;
     // const googleUser = {};
     const attachSignin = (element) => {
-      console.log(element.id);
       window.auth2.attachClickHandler(element, {},
         (googleUser) => {
           const userName = googleUser.getBasicProfile().getName();
