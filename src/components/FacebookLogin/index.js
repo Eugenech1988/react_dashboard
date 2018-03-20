@@ -7,15 +7,10 @@ import {setFBStatus} from 'actions/loginAction';
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  setFBStatus: (data) => dispatch(setFBStatus(data))
 });
 
 @connect(mapStateToProps, mapDispatchToProps)
 class FacebookLogin extends Component {
-  componentWillMount() {
-    console.log(this.props.onLogin);
-  }
-  
   componentDidMount() {
     document.addEventListener('FBObjectReady', this.initializeFacebookLogin);
   }
@@ -70,7 +65,6 @@ class FacebookLogin extends Component {
 }
 
 FacebookLogin.propTypes = {
-  setFBStatus: PropTypes.func
 };
 
 export default FacebookLogin;

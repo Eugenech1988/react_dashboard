@@ -1,3 +1,2 @@
-export const SET_FB_STATUS = 'SET_FB_STATUS';
-export const SET_GOOGLE_STATUS = 'SET_GOOGLE_STATUS';
 export const SET_GOOGLE_DETAILS = 'SET_GOOGLE_DETAILS';
+export const SET_FB_DETAILS = 'SET_FB_DETAILS';

@@ -7,16 +7,14 @@ import FacebookLogin from 'components/FacebookLogin';
 import Button from 'components/Button';
 import FBIcon from 'assets/icons/facebook.svg';
 import GIcon from 'assets/icons/google.svg';
-import {setFBStatus, setGoogleDetails, setGoogleStatus} from 'actions/loginAction';
+import {setGoogleDetails} from 'actions/loginAction';
 
 const mapStateToProps = (state) => ({
-  isFBLoggedIn: state.login.isFBLoggedIn
+  // FBUserName: state.login
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFBStatus: (data) => dispatch(setFBStatus(data)),
   setGoogleDetails: (data) => dispatch(setGoogleDetails(data)),
-  setGoogleStatus: (data) => dispatch(setGoogleStatus(data))
 });
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -27,12 +25,15 @@ class LoginForm extends Component {
   };
 
   componentWillMount() {
-    const FBLoginStatus = JSON.parse(localStorage.getItem('FBLogin'));
-    console.log(FBLoginStatus);
+    const {setGoogleDetails} = this.props;
+    const googleUserName = JSON.parse(localStorage.getItem('googleUserName'));
+    const FBUserName = JSON.parse(localStorage.getItem('FBUserName'));
+    if (googleUserName !== null) {
+
+    }
   }
 
   componentDidMount() {
-
     const GBtn = document.getElementById('google-btn');
     if (GBtn) {
       this.googleLoginInit();
@@ -40,8 +41,8 @@ class LoginForm extends Component {
   }
 
   googleLoginInit = () => {
-    const {setGoogleStatus, setGoogleDetails} = this.props;
-    const googleUser = {};
+    const {setGoogleDetails} = this.props;
+    // const googleUser = {};
     const attachSignin = (element) => {
       console.log(element.id);
       window.auth2.attachClickHandler(element, {},
@@ -49,7 +50,6 @@ class LoginForm extends Component {
           const userName = googleUser.getBasicProfile().getName();
           document.getElementById('name').innerText = 'Signed in: ' + userName;
           setGoogleDetails(userName);
-          setGoogleStatus(true);
         }, (error) => {
           console.log(JSON.stringify(error, undefined, 2));
         });
@@ -57,16 +57,14 @@ class LoginForm extends Component {
     window.gapi.load('auth2', () => {
       window.auth2 = window.gapi.auth2.init({
         client_id: '724509125947-kl3722uin6pq7ghsi17lt2v6ng3datmr.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
+        cookiepolicy: 'single_host_origin'
       });
       attachSignin(document.getElementById('google-btn'));
     });
   };
 
   onFacebookLogin = (loginStatus, resultObject) => {
-    const {setFBStatus} = this.props;
     if (loginStatus === true) {
-      setFBStatus(true);
       this.setState({
         FBUsername: resultObject.user.name
       });
@@ -108,7 +106,7 @@ class LoginForm extends Component {
           />
         </div>
         }
-        <div id='name'></div>
+        <div id='name'/>
         {FBUsername &&
         <p className='login-form__user-notify'>
           Welcome back
@@ -121,9 +119,6 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  isFBLoggedIn: PropTypes.bool,
-  setFBStatus: PropTypes.bool,
-  setGoogleStatus: PropTypes.bool,
   setGoogleDetails: PropTypes.object
 };
 
