@@ -91,6 +91,33 @@
   }
 }
 
+.login-form__wrapp-not-logged {
+  animation: fade .3s ease;
+}
+
+.logout-btn {
+  @extend .facebook-btn;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0;
+  &:before {
+    display: none;
+  }
+}
+
+.login-form__logged-notify {
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  margin: 0 0 20px 0;
+  padding: 0;
+  b {
+    font-size: 22px;
+    color: rgba(231, 89, 113, 0.7);
+    display: block;
+  }
+}
+
 @media (max-width: 767px) {
   .login-form {
     box-shadow: none;

@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Button from 'components/Button';
 import PropTypes from 'prop-types';
 
-import {setFBStatus} from 'actions/loginAction';
+import {setFBDetails} from 'actions/loginAction';
+import FBIcon from 'assets/icons/facebook.svg';
 
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
+  setFBDetails: (data) => dispatch(setFBDetails(data))
 });
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -39,32 +42,45 @@ class FacebookLogin extends Component {
       }
     }, );
   };
-  
+
   facebookLoginHandler = response => {
     if (response.status === 'connected') {
       this.FB.api('/me', userData => {
-        let result = {
+        const result = {
           ...response,
           user: userData
         };
-        this.props.onLogin(true, result);
+        this.onFacebookLogin(true, result);
       });
     } else {
-      this.props.onLogin(false);
+      this.onFacebookLogin(false);
+    }
+  };
+
+  onFacebookLogin = (loginStatus, resultObject) => {
+    if (loginStatus === true) {
+      console.log('userName');
+    } else {
+      console.log('Facebook login error');
     }
   };
   
   render() {
-    const {children} = this.props;
     return (
       <div className='login-form__facebook-login-wrap' onClick={this.facebookLogin}>
-        {children}
+        <Button
+          login
+          btnImgSrc={FBIcon}
+          aditionalCls='facebook-btn'
+          btnText='Connect to facebook'
+        />
       </div>
     );
   }
 }
 
 FacebookLogin.propTypes = {
+  setFBDetails: PropTypes.string
 };
 
 export default FacebookLogin;
