@@ -12,3 +12,8 @@ export const detectPhone = () => {
   const viewportWidth = window.innerWidth;
   return (viewportWidth > 767);
 };
+
+export const tempFunc = () => {
+  const something = 'some text';
+  return something;
+};
